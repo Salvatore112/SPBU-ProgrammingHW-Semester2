@@ -1,13 +1,10 @@
 ﻿namespace BWT;
 
-using System;
-using System.Collections.Generic;
-using System.Linq;
+using System; 
 using System.Text;
-using System.Threading.Tasks;
 
-//Class that contains a BWT transform implementation.
-static class BWT
+// Class that contains a BWT transform implementation.
+internal class BWT
 {
     static string Rotate(String oldString)
     {
