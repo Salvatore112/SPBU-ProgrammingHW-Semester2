@@ -27,6 +27,7 @@ class Program
             Console.WriteLine("Tests weren't passed");
         }
     }
+    
     static void DisplayArray(int[] array)
     {
         foreach (int item in array)
