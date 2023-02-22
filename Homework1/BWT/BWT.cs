@@ -4,7 +4,7 @@ using System;
 using System.Text;
 
 // Class that contains a BWT transform implementation.
-internal class BWT
+internal static class BWT
 {
     static string Rotate(String oldString)
     {
