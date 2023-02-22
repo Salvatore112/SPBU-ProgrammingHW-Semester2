@@ -1,13 +1,9 @@
 namespace QuickSort;
 
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 // Class that contains QuickSort function implementation and tests for it. 
-static class Sort
+internal static class Sort
 {
     // Function that sorts an array using QuickSort.
     public static void QuickSort(int[] array)
