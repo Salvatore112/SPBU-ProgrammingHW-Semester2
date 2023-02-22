@@ -11,14 +11,14 @@ static class BWT
 {
     static string Rotate(String oldString)
     {
-        var newBuffer = new StringBuilder();
-        newBuffer.Append(oldString[oldString.Length - 1]);
+        var newString = new StringBuilder();
+        newString.Append(oldString[oldString.Length - 1]);
         for (int i = 0; i < oldString.Length - 1; i++)
         {
-            newBuffer.Append(oldString[i]);
+            newString.Append(oldString[i]);
         }
         
-        return newBuffer.ToString();
+        return newString.ToString();
     }
 
     // Function that puts a string through BWT transformation.
