@@ -12,6 +12,7 @@ static class Sort
     {
         QuickSortRecursion(array, 0, array.Length - 1);
     }
+    
     static void QuickSortRecursion(int[] array, int low, int high)
     {
         if (low < high)
@@ -21,6 +22,7 @@ static class Sort
             QuickSortRecursion(array, pivotIndex + 1, high);
         } 
     }
+    
     static int Partition(int[] array, int low, int high)
     {
         int pivotValue = array[high];
@@ -36,12 +38,14 @@ static class Sort
         Swap(ref array[i], ref array[high]);
         return i;
     }
+    
     static void Swap(ref int oneValue, ref int anotherValue)
     {
         int temp = oneValue;
         oneValue = anotherValue;
         anotherValue = temp;
     }
+    
     static bool IsSorted(int[] array)
     {
         for (int i = 0; i < array.Length - 1; i++)
@@ -53,6 +57,7 @@ static class Sort
         }
         return true;
     }
+    
     public static bool Tests()
     {
         int[] testArray0 = { 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0 };
