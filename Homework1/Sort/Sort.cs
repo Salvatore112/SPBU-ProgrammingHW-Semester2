@@ -6,8 +6,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+// Class that contains QuickSort function implementation and tests for it. 
 static class Sort
 {
+    // Function that sorts an array using QuickSort.
     public static void QuickSort(int[] array)
     {
         QuickSortRecursion(array, 0, array.Length - 1);
@@ -58,6 +60,7 @@ static class Sort
         return true;
     }
     
+    // Function that tests QuickSort function.
     public static bool Tests()
     {
         int[] testArray0 = { 10, 9, 8, 7, 6, 5, 4, 3, 2, 1, 0 };
