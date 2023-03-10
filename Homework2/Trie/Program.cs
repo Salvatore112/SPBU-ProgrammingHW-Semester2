@@ -10,7 +10,7 @@ class Program
         }
         else 
         {
-            Trie testTrie = new Trie();
+            var testTrie = new Trie();
 
             testTrie.Add("kernel");
             testTrie.Add("test");
