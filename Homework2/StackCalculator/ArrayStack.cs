@@ -1,4 +1,4 @@
-﻿namespace StackCalculator;
+﻿namespace StackCalculatorTask;
 
 using System;
 
