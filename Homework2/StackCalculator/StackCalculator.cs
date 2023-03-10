@@ -6,51 +6,25 @@ using System.Text;
 // Class that contains functions to calculate reverse polish notation using stack.
 internal class StackCalculator
 {
-    int GetNextNumber(string expression, ref int i)
-    {
-        var tempString = new StringBuilder();
-        while (expression[i] != ' ')
-        {
-            tempString.Append(expression[i]);
-            if (i + 1 == expression.Length)
-            {
-                break;
-            }
-            i++;
-        }
-        return Int32.Parse(tempString.ToString());
-    }
-
     // Function to calculate reverse polish notation using stack.
     public double Calculate(string expression)
     {
         var Stack = new ListStack();
 
-        for (int i = 0; i < expression.Length; i++)
+        foreach (var i in expression.Split(' '))
         {
-            switch (expression[i])
+            switch (i)
             {
-                case ' ':
-                    continue;
-                case '+':
+                case "+":
                     Stack.Push(Stack.Pop() + Stack.Pop());
                     break;
-                case '-':
-                    {
-                        if (i + 1 == expression.Length || expression[i + 1] == ' ')
-                        {
-                            Stack.Push(-Stack.Pop() + Stack.Pop());
-                        }
-                        else
-                        {
-                            Stack.Push(GetNextNumber(expression, ref i));
-                        }
-                    }
+                case "-":
+                    Stack.Push(-Stack.Pop() + Stack.Pop());
                     break;
-                case '*':
+                case "*":
                     Stack.Push(Stack.Pop() * Stack.Pop());
                     break;
-                case '/':
+                case "/":
                     double bottomElement = Stack.Pop();
                     double topElement = Stack.Pop();
                     if (Math.Abs(bottomElement) < 0.000001)
@@ -63,7 +37,7 @@ internal class StackCalculator
                     }
                     break;
                 default:
-                    Stack.Push(GetNextNumber(expression, ref i));
+                    Stack.Push(Int32.Parse(i));
                     break;
             }
         }
