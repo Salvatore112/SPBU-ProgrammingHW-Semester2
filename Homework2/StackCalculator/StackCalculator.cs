@@ -53,7 +53,7 @@ internal class StackCalculator
                 case '/':
                     double bottomElement = Stack.Pop();
                     double topElement = Stack.Pop();
-                    if (bottomElement - 0 < 0.000001)
+                    if (Math.Abs(bottomElement) < 0.000001)
                     {
                         throw new DivideByZeroException();
                     }
