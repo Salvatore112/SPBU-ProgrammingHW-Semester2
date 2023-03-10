@@ -107,11 +107,7 @@ internal class Trie
     {
         if (remainingString.Length <= 0)
         {
-            if (!isHere)
-            {
-                return false;
-            }
-            return true;
+            return isHere;
         }
 
         char prefix = remainingString[0];
@@ -129,12 +125,8 @@ internal class Trie
         {
             root.SubNodes.Remove(prefix);
         }
-        
-        if (!isHere)
-        {
-            return false;
-        }
-        return true;
+
+        return isHere;
     }
     
     // Function that returns amount of words starting with the given prefix.
