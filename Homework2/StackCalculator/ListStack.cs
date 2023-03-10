@@ -4,9 +4,6 @@ using System;
 
 internal class ListStack : IStack
 {
-    Exception PopFromEmptyStackExceprion = new Exception("You tried to pop from an empty stack!");
-    Exception PeekEmptyStackExceprion = new Exception("You tried to peek an empty stack!");
-
     List<double> collection;
     int size;
     int stackPosition;
@@ -25,7 +22,7 @@ internal class ListStack : IStack
     {
         if  (stackPosition == - 1)
         {
-            throw PopFromEmptyStackExceprion;
+            throw new Exception("You tried to pop from an empty stack!");
         }
         
         double deletedValue = collection[stackPosition];
@@ -41,7 +38,7 @@ internal class ListStack : IStack
     {
         if (stackPosition == -1)
         {
-            throw PeekEmptyStackExceprion;
+            throw new Exception("You tried to peek an empty stack!");
         }
         
         return collection[stackPosition];

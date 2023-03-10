@@ -4,10 +4,6 @@ using System;
 
 internal class ArrayStack : IStack
 {
-    Exception PopFromEmptyStackExceprion = new Exception("You tried to pop from an empty stack!");
-    Exception PeekEmptyStackExceprion = new Exception("You tried to peek an empty stack!");
-    Exception StackOverflowException = new Exception("Stack exceeded its capacity!");
-
     double[] collection;
     int size;
     int capacity;
@@ -20,7 +16,7 @@ internal class ArrayStack : IStack
     {
         if (stackPosition + 1 == capacity)
         {
-            throw StackOverflowException;
+            throw new Exception("Stack exceeded its capacity!");
         }
         
         stackPosition++;
@@ -33,7 +29,7 @@ internal class ArrayStack : IStack
     {
         if (stackPosition == -1)
         {
-            throw PopFromEmptyStackExceprion;
+            throw new Exception("You tried to pop from an empty stack!");
         }
         
         double deletedValue = collection[stackPosition];
@@ -48,7 +44,7 @@ internal class ArrayStack : IStack
     {
         if (stackPosition == -1)
         {
-            throw PeekEmptyStackExceprion;
+            throw new Exception("You tried to peek an empty stack!");
         }
 
         return collection[stackPosition];
