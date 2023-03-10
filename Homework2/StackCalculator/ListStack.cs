@@ -5,16 +5,13 @@ using System;
 internal class ListStack : IStack
 {
     List<double> collection;
-    int size;
     int stackPosition;
-    int Size { get { return size; } }
 
     // Function that takes a value and puts it on the top of the stack.
     public void Push(double value)
     {
         stackPosition++;
         collection.Add(value);
-        size++;
     }
 
     // Function that removes an element from the top of the stack.
@@ -27,7 +24,6 @@ internal class ListStack : IStack
         
         double deletedValue = collection[stackPosition];
         collection.Remove(deletedValue);
-        size--;
         stackPosition--;
         
         return deletedValue;
@@ -120,7 +116,6 @@ internal class ListStack : IStack
 
     public ListStack()
     {
-        this.size = 0;
         this.stackPosition = -1;
         this.collection = new List<double>();
     }

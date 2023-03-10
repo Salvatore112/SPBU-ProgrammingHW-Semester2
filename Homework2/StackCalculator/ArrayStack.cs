@@ -5,10 +5,8 @@ using System;
 internal class ArrayStack : IStack
 {
     double[] collection;
-    int size;
     int capacity;
     int stackPosition;
-    int Size { get { return size; } }
     int Capacity { get { return capacity; } }
 
     // Function that takes a value and puts it on the top of the stack.
@@ -22,7 +20,6 @@ internal class ArrayStack : IStack
         
         stackPosition++;
         collection[stackPosition] = value;
-        size++;
     }
 
     // Function that removes an element from the top of the stack.
@@ -35,7 +32,6 @@ internal class ArrayStack : IStack
         
         double deletedValue = collection[stackPosition];
         stackPosition--;
-        size--;
         
         return deletedValue;
     }
@@ -73,7 +69,7 @@ internal class ArrayStack : IStack
         testStack1.Push(1);
         testStack1.Push(2); 
         testStack1.Push(6);
-        if (testStack1.Size != 3 || testStack1.Peek() != 6)
+        if (testStack1.Peek() != 6)
         {
             Console.WriteLine("Stack tests failed on push function.");
             return false;
@@ -84,7 +80,7 @@ internal class ArrayStack : IStack
         testStack2.Push(8);
         testStack2.Push(6);
         testStack2.Pop();
-        if (testStack2.Size != 2 || testStack2.Peek() != 8)
+        if (testStack2.Peek() != 8)
         {
             Console.WriteLine("Stack tests failed on pop function.");
             return false;
@@ -127,7 +123,6 @@ internal class ArrayStack : IStack
 
     public ArrayStack (int capacity)
     {
-        this.size = 0;
         this.stackPosition = -1;
         this.collection = new double[capacity];
         this.capacity = capacity;
