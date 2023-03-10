@@ -44,7 +44,6 @@ internal class Trie
         {
             return AddRecursion(root, element);
         }
-        
     }
 
     bool AddRecursion(TrieNode node, string remainingString)
