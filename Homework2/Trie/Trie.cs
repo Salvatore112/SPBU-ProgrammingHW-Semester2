@@ -1,36 +1,29 @@
-﻿namespace TrieNamespace;
+﻿namespace TrieDataStructure;
 
 using System;
 
 // Trie class that implements Trie data structure.
 internal class Trie : ITrie
 {
-    TrieNode root;
+    private TrieNode root;
 
-    int size;
-    int Size { get { return size; } }
+    public int Size { get; private set; }
 
     public Trie()
     {
         this.root = new TrieNode();
-        this.size = 0;
     }
 
-    class TrieNode
+    private class TrieNode
     {
-        Dictionary<char, TrieNode> subNodes;
-        bool isWord;
-        public int wordCount;
+        public Dictionary<char, TrieNode> SubNodes { get; }
+        public bool IsWord { get; set; }
+        public int WordCount { get; set; }
+       
         public TrieNode()
         {
-            this.subNodes = new Dictionary<char, TrieNode>();
-            this.isWord = false;
-            this.wordCount = 0;
+            this.SubNodes = new Dictionary<char, TrieNode>();
         }
-
-        public Dictionary<char, TrieNode> SubNodes { get { return subNodes; } }
-        public bool IsWord { get { return isWord; } set { isWord = value; } }
-
     }
 
     // Functions that takes an element and adds it to the trie.
@@ -61,12 +54,12 @@ internal class Trie : ITrie
         {
             node.SubNodes.Add(prefix, new TrieNode());
         }
-        node.SubNodes[prefix].wordCount++;
+        node.SubNodes[prefix].WordCount++;
 
         if (subString.Length == 0)
         {
             node.SubNodes[prefix].IsWord = true;
-            size++;
+            Size++;
             return true;
         }
         else
@@ -116,9 +109,9 @@ internal class Trie : ITrie
 
         TrieNode tempNode = root.SubNodes[prefix];
 
-        if (root.SubNodes[prefix].wordCount > 1)
+        if (root.SubNodes[prefix].WordCount > 1)
         {
-            root.SubNodes[prefix].wordCount--;
+            root.SubNodes[prefix].WordCount--;
         }
         else
         {
@@ -143,7 +136,7 @@ internal class Trie : ITrie
                 tempNode = tempNode.SubNodes[character];
             }
         }
-        return tempNode.wordCount;
+        return tempNode.WordCount;
     }
 
     // Function that tests if all the trie functions work correctly.

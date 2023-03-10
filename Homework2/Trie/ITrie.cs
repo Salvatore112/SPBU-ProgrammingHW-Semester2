@@ -1,4 +1,4 @@
-﻿namespace TrieNamespace;
+﻿namespace TrieDataStructure;
 
 using System;
 
