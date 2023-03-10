@@ -49,7 +49,7 @@ internal class Trie
 
     bool AddRecursion(TrieNode node, string remainingString)
     {
-        // If statement that prevents the programm crush from passing an empty string.
+        // If statement that prevents the program crash from passing an empty string.
         if (remainingString.Length <= 0)
         {
             return true;
