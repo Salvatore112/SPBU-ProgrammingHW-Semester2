@@ -6,13 +6,13 @@ using System.Text;
 // Class that contains functions to calculate reverse polish notation using stack.
 internal class StackCalculator
 {
-    int GetNextNumber(string Expression, ref int i)
+    int GetNextNumber(string expression, ref int i)
     {
         var tempString = new StringBuilder();
-        while (Expression[i] != ' ')
+        while (expression[i] != ' ')
         {
-            tempString.Append(Expression[i]);
-            if (i + 1 == Expression.Length)
+            tempString.Append(expression[i]);
+            if (i + 1 == expression.Length)
             {
                 break;
             }
@@ -22,13 +22,13 @@ internal class StackCalculator
     }
 
     // Function to calculate reverse polish notation using stack.
-    public double Calculate(string Expression)
+    public double Calculate(string expression)
     {
         var Stack = new ListStack();
 
-        for (int i = 0; i < Expression.Length; i++)
+        for (int i = 0; i < expression.Length; i++)
         {
-            switch (Expression[i])
+            switch (expression[i])
             {
                 case ' ':
                     continue;
@@ -37,13 +37,13 @@ internal class StackCalculator
                     break;
                 case '-':
                     {
-                        if (i + 1 == Expression.Length || Expression[i + 1] == ' ')
+                        if (i + 1 == expression.Length || expression[i + 1] == ' ')
                         {
                             Stack.Push(-Stack.Pop() + Stack.Pop());
                         }
                         else
                         {
-                            Stack.Push(GetNextNumber(Expression, ref i));
+                            Stack.Push(GetNextNumber(expression, ref i));
                         }
                     }
                     break;
@@ -63,7 +63,7 @@ internal class StackCalculator
                     }
                     break;
                 default:
-                    Stack.Push(GetNextNumber(Expression, ref i));
+                    Stack.Push(GetNextNumber(expression, ref i));
                     break;
             }
         }
