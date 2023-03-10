@@ -42,9 +42,7 @@ internal class ListStack : IStack
 
     // Function that checks if the stack is empty.
     public bool IsEmpty()
-    {
-        return (stackPosition == 0);
-    }
+        => stackPosition == 0;
 
     // Function that prints stack elements.
     public void DisplayStack()
