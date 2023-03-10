@@ -95,7 +95,7 @@ internal class Trie
         return true;
     }
 
-    // Funcrtion that removes an element from the trie.
+    // Function that removes an element from the trie.
     public bool Remove(string element)
     {
         bool isHere = Contains(element);
