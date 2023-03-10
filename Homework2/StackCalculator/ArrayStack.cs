@@ -16,7 +16,8 @@ internal class ArrayStack : IStack
     {
         if (stackPosition + 1 == capacity)
         {
-            throw new Exception("Stack exceeded its capacity!");
+            capacity *= 2;
+            Array.Resize(ref collection, capacity);
         }
         
         stackPosition++;
@@ -118,25 +119,6 @@ internal class ArrayStack : IStack
         if (!ExceptionCaught4)
         {
             Console.WriteLine("Stack tests failed on catching PeekEmptyStackExceprion.");
-            return false;
-        }
-
-        var testStack5 = new ArrayStack(1);
-        bool ExceptionCaught5 = false;
-        try
-        {
-            testStack5.Push(24);
-            testStack5.Push(24);
-            testStack5.Push(24);
-            testStack5.Push(24);
-        }
-        catch (Exception)
-        {
-            ExceptionCaught5 = true;
-        }
-        if (!ExceptionCaught5)
-        {
-            Console.WriteLine("Stack tests failed on catching StackOverflowException.");
             return false;
         }
 
