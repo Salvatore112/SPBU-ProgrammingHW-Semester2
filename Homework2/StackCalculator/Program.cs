@@ -14,14 +14,6 @@ else
     Console.WriteLine($"Result: {result}");
 }
     
-// Interface that ListStack and ArrayStack classes implement.
-    interface IStack
-    {
-        void Push(double value);
-        double Pop();
-        double Peek();
-        bool IsEmpty();
-        void DisplayStack();
-    }
+
 
 
