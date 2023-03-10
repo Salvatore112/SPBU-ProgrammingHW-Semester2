@@ -4,18 +4,17 @@ using System;
 
 internal class ArrayStack : IStack
 {
-    double[] collection;
-    int capacity;
-    int stackPosition;
-    int Capacity { get { return capacity; } }
+    private double[] collection;
+    private int stackPosition;
+    public int Capacity { get ; private set; }
 
     // Function that takes a value and puts it on the top of the stack.
     public void Push(double value)
     {
-        if (stackPosition + 1 == capacity)
+        if (stackPosition + 1 == Capacity)
         {
-            capacity *= 2;
-            Array.Resize(ref collection, capacity);
+            Capacity *= 2;
+            Array.Resize(ref collection, Capacity);
         }
         
         stackPosition++;
@@ -123,7 +122,7 @@ internal class ArrayStack : IStack
     {
         this.stackPosition = -1;
         this.collection = new double[capacity];
-        this.capacity = capacity;
+        this.Capacity = capacity;
     }
 }
 

@@ -4,8 +4,8 @@ using System;
 
 internal class ListStack : IStack
 {
-    List<double> collection;
-    int stackPosition;
+    private List<double> collection;
+    private int stackPosition;
 
     // Function that takes a value and puts it on the top of the stack.
     public void Push(double value)
