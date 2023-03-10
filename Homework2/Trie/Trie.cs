@@ -1,15 +1,15 @@
-﻿namespace Trie;
+﻿namespace TrieNamespace;
 
 using System;
 
 // Trie class that implements Trie data structure.
-internal class Trie
+internal class Trie : ITrie
 {
     TrieNode root;
-    
+
     int size;
     int Size { get { return size; } }
-    
+
     public Trie()
     {
         this.root = new TrieNode();
@@ -56,7 +56,7 @@ internal class Trie
 
         char prefix = remainingString[0];
         string subString = remainingString.Substring(1);
-        
+
         if (!node.SubNodes.ContainsKey(prefix))
         {
             node.SubNodes.Add(prefix, new TrieNode());
@@ -98,7 +98,7 @@ internal class Trie
     public bool Remove(string element)
     {
         bool isHere = Contains(element);
-        
+
         return RemoveRecursion(root, element, isHere);
     }
 
@@ -111,7 +111,7 @@ internal class Trie
 
         char prefix = remainingString[0];
         string subString = remainingString.Substring(1);
-        
+
         RemoveRecursion(root.SubNodes[prefix], subString, isHere);
 
         TrieNode tempNode = root.SubNodes[prefix];
@@ -127,7 +127,7 @@ internal class Trie
 
         return isHere;
     }
-    
+
     // Function that returns amount of words starting with the given prefix.
     public int HowManyStartsWithPrefix(string prefix)
     {
