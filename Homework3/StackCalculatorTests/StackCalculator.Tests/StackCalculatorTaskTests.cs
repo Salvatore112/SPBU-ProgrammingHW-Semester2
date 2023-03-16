@@ -2,7 +2,7 @@ namespace StackCalculatorTask.Tests;
 
 public class StackCalculatorTaskTests
 {
-    StackCalculator calculator = new StackCalculator();
+    private StackCalculator calculator = new();
 
     [SetUp]
     public void Setup()
