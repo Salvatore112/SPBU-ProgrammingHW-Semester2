@@ -1,7 +1,7 @@
 ﻿namespace StackCalculatorTask;
 
 // Interface that ListStack and ArrayStack classes implement.
-interface IStack
+public interface IStack
 {
     // Function that takes a value and puts it on the top of the stack.
     void Push(double value);
