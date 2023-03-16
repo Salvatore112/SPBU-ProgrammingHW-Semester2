@@ -2,82 +2,82 @@ namespace StackCalculatorTask.Tests;
 
 public class StackCalculatorTaskTests
 {
-    private StackCalculator calculator = new();
-
-    [SetUp]
-    public void Setup()
+    StackCalculator calculator = new StackCalculator();
+    
+    private static IEnumerable<IStack> stacks
     {
+        get
+        {
+            yield return new ListStack();
+            yield return new ArrayStack(20);
+        }
     }
 
-    [Test]
-    public void DevisionByZeroShouldThrowDivideByZeroException()
+    [Test, TestCaseSource(nameof(stacks))]
+    public void DevisionByZeroShouldThrowDivideByZeroException(IStack stack)
     {
-        var testStack = new ArrayStack(3);
         string testExpression = "1 0 /";
 
-        Assert.Throws<DivideByZeroException>(() => calculator.Calculate(testExpression, testStack));
+        Assert.Throws<DivideByZeroException>(() => calculator.Calculate(testExpression, stack));
     }
 
-    [Test]
-    public void CalculatorShouldCorrectlyWorkWithNegativeValues()
+    [Test, TestCaseSource(nameof(stacks))]
+    public void CalculatorShouldCorrectlyWorkWithNegativeValues(IStack stack)
     {
-        var testStack = new ListStack();
         string testExpression = "-10 -5 -";
 
-        double result = calculator.Calculate(testExpression, testStack);
+        double result = calculator.Calculate(testExpression, stack);
 
         Assert.That(result + 5 < 0.00001);
     }
 
-    [Test]
-    public void CalculatorShouldCorrectlyWorkWithPositiveValues()
+    [Test, TestCaseSource(nameof(stacks))]
+    public void CalculatorShouldCorrectlyWorkWithPositiveValues(IStack stack)
     {
-        var testStack = new ArrayStack(3);
         string testExpression = "110 5 *";
 
-        double result = calculator.Calculate(testExpression, testStack);
+        double result = calculator.Calculate(testExpression, stack);
 
         Assert.That(result - 550 < 0.00001);
     }
 
-    [Test]
-    public void CalculatorShouldThrowFormatExceptionIfNonIntValuesArePassed()
+    [Test, TestCaseSource(nameof(stacks))]
+    public void CalculatorShouldThrowFormatExceptionIfNonIntValuesArePassed(IStack stack)
     {
-        var testStack = new ListStack();
         string testExpression = "2.71 2.5 /";
 
-        Assert.Throws<FormatException>(() => calculator.Calculate(testExpression, testStack));
+        Assert.Throws<FormatException>(() => calculator.Calculate(testExpression, stack));
     }
 
-    [Test]
-    public void CalculatorShouldProduceTheSameResultWithDifferentStacks()
+    [Test, TestCaseSource(nameof(stacks))]
+    public void CalculatorShouldProduceTheSameResultWithDifferentStacks(IStack stack)
     {
         var testArrayStack = new ArrayStack(10);
         var testListStack = new ListStack();
         string testExpression = "72 34 24 * +";
 
-        Assert.That(calculator.Calculate(testExpression, testListStack) -
-                    calculator.Calculate(testExpression, testArrayStack) < 0.00001);
+        Assert.That(calculator.Calculate(testExpression, stack) -
+                    calculator.Calculate(testExpression, stack) < 0.00001);
     }
 
-    [Test]
-    public void MultiplicationByZeroShouldProduceZero()
+    [Test, TestCaseSource(nameof(stacks))]
+    public void MultiplicationByZeroShouldProduceZero(IStack stack)
     {
         var testStack = new ListStack();
-        string testExpression = "5 0 *";
+        string testExpression = "0 5 *";
 
-        double result = calculator.Calculate(testExpression, testStack);
+        double result = calculator.Calculate(testExpression, stack);
 
         Assert.That(result < 0.000001);
     }
 
-    [Test]
-    public void AddingZeroShouldMakeNoDifference()
+    [Test, TestCaseSource(nameof(stacks))]
+    public void AddingZeroShouldMakeNoDifference(IStack stack)
     {
         var testStack = new ArrayStack(5);
         string testExpression = "0 5 +";
 
-        double result = calculator.Calculate(testExpression, testStack);
+        double result = calculator.Calculate(testExpression, stack);
 
         Assert.That(result - 5 < 0.000001);
     }
