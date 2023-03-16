@@ -64,7 +64,7 @@ public class StackCalculatorTaskTests
     public void MultiplicationByZeroShouldProduceZero(IStack stack)
     {
         var testStack = new ListStack();
-        string testExpression = "5 0 *";
+        string testExpression = "0 5 *";
 
         double result = calculator.Calculate(testExpression, stack);
 
