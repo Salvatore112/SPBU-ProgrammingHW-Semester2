@@ -48,7 +48,7 @@ internal class ArrayStack : IStack
 
     // Function that checks if the stack is empty.
     public bool IsEmpty()
-        => stackPosition == 0;
+        => stackPosition == -1;
 
     // Function that prints stack elements.
     public void DisplayStack()
@@ -57,65 +57,6 @@ internal class ArrayStack : IStack
         {
             Console.WriteLine(collection[i]);
         }
-    }
-
-    // Function that tests if the stack functions work correctly.
-    public static bool Tests()
-    {
-        var testStack1 = new ArrayStack(20);
-        testStack1.Push(1);
-        testStack1.Push(2); 
-        testStack1.Push(6);
-        if (testStack1.Peek() != 6)
-        {
-            Console.WriteLine("Stack tests failed on push function.");
-            return false;
-        }
-        
-        var testStack2 = new ArrayStack(20);
-        testStack2.Push(1);
-        testStack2.Push(8);
-        testStack2.Push(6);
-        testStack2.Pop();
-        if (testStack2.Peek() != 8)
-        {
-            Console.WriteLine("Stack tests failed on pop function.");
-            return false;
-        }
-
-        var testStack3 = new ArrayStack(20);
-        bool ExceptionCaught3 = false;
-        try
-        {
-            testStack3.Pop();
-        }
-        catch (Exception)
-        {
-            ExceptionCaught3 = true;
-        }
-        if (!ExceptionCaught3)
-        {
-            Console.WriteLine("Stack tests failed on catching PopFromEmptyStackExceprion.");
-            return false;
-        }
-
-        var testStack4 = new ArrayStack(20);
-        bool ExceptionCaught4 = false;
-        try
-        {
-            testStack4.Peek();
-        }
-        catch (Exception)
-        {
-            ExceptionCaught4 = true;
-        }
-        if (!ExceptionCaught4)
-        {
-            Console.WriteLine("Stack tests failed on catching PeekEmptyStackExceprion.");
-            return false;
-        }
-
-        return true;
     }
 
     public ArrayStack (int capacity)

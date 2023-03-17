@@ -1,6 +1,6 @@
 namespace StackCalculatorTask.Tests;
 
-public class StackCalculatorTaskTests
+public class StackCalculatorTests
 {
     StackCalculator calculator = new StackCalculator();
     
@@ -28,7 +28,7 @@ public class StackCalculatorTaskTests
 
         double result = calculator.Calculate(testExpression, stack);
 
-        Assert.That(result + 5 < 0.00001);
+        Assert.That(result, Is.EqualTo(-5).Within(0.00001));
     }
 
     [Test, TestCaseSource(nameof(stacks))]
@@ -38,7 +38,7 @@ public class StackCalculatorTaskTests
 
         double result = calculator.Calculate(testExpression, stack);
 
-        Assert.That(result - 550 < 0.00001);
+        Assert.That(result, Is.EqualTo(550).Within(0.00001));
     }
 
     [Test, TestCaseSource(nameof(stacks))]
@@ -50,17 +50,6 @@ public class StackCalculatorTaskTests
     }
 
     [Test, TestCaseSource(nameof(stacks))]
-    public void CalculatorShouldProduceTheSameResultWithDifferentStacks(IStack stack)
-    {
-        var testArrayStack = new ArrayStack(10);
-        var testListStack = new ListStack();
-        string testExpression = "72 34 24 * +";
-
-        Assert.That(calculator.Calculate(testExpression, stack) -
-                    calculator.Calculate(testExpression, stack) < 0.00001);
-    }
-
-    [Test, TestCaseSource(nameof(stacks))]
     public void MultiplicationByZeroShouldProduceZero(IStack stack)
     {
         var testStack = new ListStack();
@@ -68,7 +57,7 @@ public class StackCalculatorTaskTests
 
         double result = calculator.Calculate(testExpression, stack);
 
-        Assert.That(result < 0.000001);
+        Assert.That(result, Is.EqualTo(0).Within(0.00001));
     }
 
     [Test, TestCaseSource(nameof(stacks))]
@@ -79,6 +68,6 @@ public class StackCalculatorTaskTests
 
         double result = calculator.Calculate(testExpression, stack);
 
-        Assert.That(result - 5 < 0.000001);
+        Assert.That(result, Is.EqualTo(5).Within(0.00001));
     }
 }
