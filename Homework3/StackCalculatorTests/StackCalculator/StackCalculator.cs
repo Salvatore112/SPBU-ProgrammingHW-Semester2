@@ -1,12 +1,6 @@
-﻿using System.Runtime.CompilerServices;
-
-[assembly: InternalsVisibleTo("StackCalculatorTask.Tests")]
-
-namespace StackCalculatorTask;
+﻿namespace StackCalculatorTask;
 
 using System;
-using System.ComponentModel.DataAnnotations;
-using System.Text;
 
 // Class that contains functions to calculate reverse polish notation using stack.
 internal class StackCalculator
