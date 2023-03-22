@@ -2,43 +2,20 @@
 
 namespace ParseTreeSpace;
 
+/// <inheritdoc cref="INode"/>
 internal class MinusOperator : Operator
 {
+    /// <inheritdoc cref="INode.LeftChild"/>
     public override INode LeftChild { get; set; }
+    
+    /// <inheritdoc cref="INode.RightChild"/>
     public override INode RightChild { get; set; }
 
+    /// <inheritdoc cref="INode.Print"/>
     public override string Print()
         => $"( - {LeftChild.Print()} {RightChild.Print()} )";
 
+    /// <inheritdoc cref="INode.Calculate"/>
     public override double Calculate()
         => LeftChild.Calculate() - RightChild.Calculate();
-
-    internal MinusOperator(int leftValue, int rightValue)
-    {
-        this.LeftChild = new Operand(leftValue);
-        this.RightChild = new Operand(rightValue);
-    }
-
-    internal MinusOperator(INode leftNode, int rightValue)
-    {
-        this.LeftChild = leftNode;
-        this.RightChild = new Operand(rightValue);
-    }
-
-    internal MinusOperator(int leftValue, INode rightNode)
-    {
-        this.LeftChild = new Operand(leftValue);
-        this.RightChild = rightNode;
-    }
-
-    internal MinusOperator(INode leftNode, INode rightNode)
-    {
-        this.LeftChild = leftNode;
-        this.RightChild = rightNode;
-    }
-
-    internal MinusOperator()
-    {
-
-    }
 }

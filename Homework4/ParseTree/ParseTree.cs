@@ -1,15 +1,14 @@
-﻿using System.ComponentModel.Design.Serialization;
-using System.Numerics;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
+﻿using System.Text;
 
 namespace ParseTreeSpace;
 
-internal class ParseTree
+/// <inheritdoc cref="IParseTree"/>
+internal class ParseTree : IParseTree
 {
     private INode? Root { get; set; }
     private bool IsTreeBuilt { get; set; } = false;
 
+    /// <inheritdoc cref="IParseTree.CalculateExpression"/>
     public double CalculateExpression(string expression)
     {
         if (!IsTreeBuilt)
@@ -26,6 +25,7 @@ internal class ParseTree
         return Root.Calculate();
     }
 
+    /// <inheritdoc cref="IParseTree.PrintTree"/>
     public string PrintTree(string expression)
     {
         if (!IsTreeBuilt)
@@ -42,6 +42,7 @@ internal class ParseTree
         return Root.Print();
     }
 
+    /// <inheritdoc cref="IParseTree.BuildParseTree"/>
     public void BuildParseTree(string expression)
     {
         int position = 0;
@@ -108,19 +109,17 @@ internal class ParseTree
 
     private string[] SimplifyExpression(string expression)
     {
-        var simplifiedExpression = new List<string>();
+        var newExpression = new StringBuilder();
+        
         foreach (char character in expression)
         {
-            if (character == '(' || character == ')' || character == ' ')
+            if (character != ')' && character != '(') 
             {
-                continue;
-            }
-            else
-            {
-                simplifiedExpression.Add(character.ToString());
+                newExpression.Append(character);
             }
         }
-        return simplifiedExpression.ToArray();
+
+        return newExpression.ToString().Split(null);
     }
 
     private bool IsOperand(string character)
