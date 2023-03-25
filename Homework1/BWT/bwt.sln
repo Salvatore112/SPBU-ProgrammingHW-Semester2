@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "bwt", "bwt\bwt.csproj", "{24B78EFA-7D7D-4EDD-9C4A-D608FB609267}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "bwt", "bwt.csproj", "{533812B3-6F2E-4394-9A8C-C31F9ECFF432}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{24B78EFA-7D7D-4EDD-9C4A-D608FB609267}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{24B78EFA-7D7D-4EDD-9C4A-D608FB609267}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{24B78EFA-7D7D-4EDD-9C4A-D608FB609267}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{24B78EFA-7D7D-4EDD-9C4A-D608FB609267}.Release|Any CPU.Build.0 = Release|Any CPU
+		{533812B3-6F2E-4394-9A8C-C31F9ECFF432}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{533812B3-6F2E-4394-9A8C-C31F9ECFF432}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{533812B3-6F2E-4394-9A8C-C31F9ECFF432}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{533812B3-6F2E-4394-9A8C-C31F9ECFF432}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {96DD1EB7-7762-4D7C-8566-FF493A87AAA6}
+		SolutionGuid = {32155CB6-E4C8-4F53-87F5-C3952E78AF19}
 	EndGlobalSection
 EndGlobal
