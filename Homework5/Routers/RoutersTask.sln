@@ -5,7 +5,7 @@ VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RoutersTask", "RoutersTask.csproj", "{E857187F-FDE9-4F45-A6C1-C76D6E6DC3D5}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Routers.Tests", "..\RoutersTask.Tests\Routers.Tests.csproj", "{D95375B3-766D-41B5-A4AE-4D2A9353D18E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Routers.Tests", "..\..\..\Routers\RoutersTask\RoutersTask.Tests\Routers.Tests.csproj", "{2806BF93-0661-4BF6-9BA3-0C016D94EF01}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{E857187F-FDE9-4F45-A6C1-C76D6E6DC3D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E857187F-FDE9-4F45-A6C1-C76D6E6DC3D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E857187F-FDE9-4F45-A6C1-C76D6E6DC3D5}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D95375B3-766D-41B5-A4AE-4D2A9353D18E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D95375B3-766D-41B5-A4AE-4D2A9353D18E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D95375B3-766D-41B5-A4AE-4D2A9353D18E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D95375B3-766D-41B5-A4AE-4D2A9353D18E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2806BF93-0661-4BF6-9BA3-0C016D94EF01}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2806BF93-0661-4BF6-9BA3-0C016D94EF01}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2806BF93-0661-4BF6-9BA3-0C016D94EF01}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2806BF93-0661-4BF6-9BA3-0C016D94EF01}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
