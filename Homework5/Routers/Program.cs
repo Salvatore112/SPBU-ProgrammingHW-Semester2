@@ -6,6 +6,6 @@ using System.Runtime.CompilerServices;
 
 var prim = new Prim();
 
-prim.GetConfiguration(args[0], args[1]);
+//prim.GetConfiguration(args[0], args[1]);
 
 Console.ReadKey(); 
