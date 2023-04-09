@@ -81,6 +81,7 @@ partial class Calculator
             this.equalsButton.TabIndex = 8;
             this.equalsButton.Text = "=";
             this.equalsButton.UseVisualStyleBackColor = true;
+            this.equalsButton.Click += new System.EventHandler(this.equalsButton_Click);
             // 
             // addButton
             // 
@@ -90,6 +91,7 @@ partial class Calculator
             this.addButton.TabIndex = 7;
             this.addButton.Text = "+";
             this.addButton.UseVisualStyleBackColor = true;
+            this.addButton.Click += new System.EventHandler(this.addButton_Click);
             // 
             // subtractButton
             // 
@@ -99,6 +101,7 @@ partial class Calculator
             this.subtractButton.TabIndex = 6;
             this.subtractButton.Text = "-";
             this.subtractButton.UseVisualStyleBackColor = true;
+            this.subtractButton.Click += new System.EventHandler(this.subtractButton_Click);
             // 
             // multiplyButton
             // 
@@ -108,6 +111,7 @@ partial class Calculator
             this.multiplyButton.TabIndex = 5;
             this.multiplyButton.Text = "*";
             this.multiplyButton.UseVisualStyleBackColor = true;
+            this.multiplyButton.Click += new System.EventHandler(this.multiplyButton_Click);
             // 
             // divideButton
             // 
@@ -117,6 +121,7 @@ partial class Calculator
             this.divideButton.TabIndex = 4;
             this.divideButton.Text = "/";
             this.divideButton.UseVisualStyleBackColor = true;
+            this.divideButton.Click += new System.EventHandler(this.divideButton_Click);
             // 
             // tableLayoutPanel2
             // 
@@ -264,6 +269,7 @@ partial class Calculator
             this.button0.TabIndex = 12;
             this.button0.Text = "0";
             this.button0.UseVisualStyleBackColor = true;
+            this.button0.Click += new System.EventHandler(this.button0_Click);
             // 
             // floatingPointButton
             // 
