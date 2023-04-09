@@ -1,4 +1,4 @@
-namespace Calculator;
+namespace CalculatorSpace;
 
 internal static class Program
 {
