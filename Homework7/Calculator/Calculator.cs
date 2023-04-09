@@ -114,4 +114,11 @@ public partial class Calculator : Form
         finiteStateMachine.IterateFSM();
         textBox.Text = finiteStateMachine.Output;
     }
+
+    private void eraseButton_Click(object sender, EventArgs e)
+    {
+        finiteStateMachine.Input = 'C';
+        finiteStateMachine.IterateFSM();
+        textBox.Text = finiteStateMachine.Output;
+    }
 }

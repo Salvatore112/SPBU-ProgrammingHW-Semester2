@@ -22,76 +22,84 @@ internal class FiniteStateMachine
 
     public void IterateFSM()
     {
-        switch (currentState)
+        if (Input == 'C')
         {
-            case (States.firstOperandStartState):
-                if (Input == '0') 
-                {
-                    currentState = States.firstOperandStartState;
-                    Output = "0";
-                    break;
-                }
-                if (IsDigit(Input))
-                {
-                    currentState = States.firstOperandState;
-                    Output = Input.ToString();
-                    firstOperand = Input.ToString();
-                }
-                break;
-            case (States.firstOperandState):
-                if (IsOperator(Input))
-                {
-                    Operator = Input; 
-                    currentState = States.secondOperandStartState;
-                    break;
-                }
-                if (IsDigit(Input))
-                {
-                    Output += Input;
-                    firstOperand += Input.ToString();
-                }
-                break;
-            case (States.secondOperandStartState):
-                if (Input == '0')
-                {
-                    currentState = States.secondOperandStartState;
-                    Output = "0";
-                    break;
-                }
-                if (IsDigit(Input))
-                {
-                    currentState = States.secondOperandState;
-                    Output = Input.ToString();
-                    secondOperand = Input.ToString();
-                }
-                break;
-            case (States.secondOperandState):
-                if (IsOperator(Input) || Input == '=') 
-                {
-                    switch (Operator)
+            currentState = States.firstOperandStartState;
+            Output = "0";
+        }
+        else 
+        {
+            switch (currentState)
+            {
+                case (States.firstOperandStartState):
+                    if (Input == '0' || IsOperator(Input))
                     {
-                        case '+':
-                            Output = (Convert.ToInt32(firstOperand) + Convert.ToInt32(secondOperand)).ToString();
-                            break;
-                        case '-':
-                            Output = (Convert.ToInt32(firstOperand) - Convert.ToInt32(secondOperand)).ToString();
-                            break;
-                        case '/':
-                            Output = (Convert.ToDouble(firstOperand) / Convert.ToDouble(secondOperand)).ToString();
-                            break;
-                        case '*':
-                            Output = (Convert.ToInt32(firstOperand) * Convert.ToInt32(secondOperand)).ToString();
-                            break;
+                        currentState = States.firstOperandStartState;
+                        Output = "0";
+                        break;
                     }
-                    currentState = States.firstOperandStartState;
+                    if (IsDigit(Input))
+                    {
+                        currentState = States.firstOperandState;
+                        Output = Input.ToString();
+                        firstOperand = Input.ToString();
+                    }
                     break;
-                }
-                if (IsDigit(Input))
-                {
-                    Output += Input;
-                    firstOperand += Input.ToString();
-                }
-                break;
+                case (States.firstOperandState):
+                    if (IsOperator(Input))
+                    {
+                        Operator = Input;
+                        currentState = States.secondOperandStartState;
+                        break;
+                    }
+                    if (IsDigit(Input))
+                    {
+                        Output += Input;
+                        firstOperand += Input.ToString();
+                    }
+                    break;
+                case (States.secondOperandStartState):
+                    if (Input == '0' || IsOperator(Input))
+                    {
+                        currentState = States.secondOperandStartState;
+                        Output = "0";
+                        break;
+                    }
+                    if (IsDigit(Input))
+                    {
+                        currentState = States.secondOperandState;
+                        Output = Input.ToString();
+                        secondOperand = Input.ToString();
+                    }
+                    break;
+                case (States.secondOperandState):
+                    if (IsOperator(Input) || Input == '=')
+                    {
+                        switch (Operator)
+                        {
+                            case '+':
+                                Output = (Convert.ToInt32(firstOperand) + Convert.ToInt32(secondOperand)).ToString();
+                                break;
+                            case '-':
+                                Output = (Convert.ToInt32(firstOperand) - Convert.ToInt32(secondOperand)).ToString();
+                                break;
+                            case '/':
+                                Output = (Convert.ToDouble(firstOperand) / Convert.ToDouble(secondOperand)).ToString();
+                                break;
+                            case '*':
+                                Output = (Convert.ToInt32(firstOperand) * Convert.ToInt32(secondOperand)).ToString();
+                                break;
+                        }
+                        currentState = States.firstOperandStartState;
+                        break;
+                    }
+                    if (IsDigit(Input))
+                    {
+                        Output += Input;
+                        firstOperand += Input.ToString();
+                    }
+                    break;
+            }
         }
     }
 

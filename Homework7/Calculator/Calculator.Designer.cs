@@ -35,7 +35,6 @@ partial class Calculator
             this.multiplyButton = new System.Windows.Forms.Button();
             this.divideButton = new System.Windows.Forms.Button();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.signButton = new System.Windows.Forms.Button();
             this.eraseButton = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -129,7 +128,6 @@ partial class Calculator
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel2.Controls.Add(this.signButton, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.eraseButton, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.button1, 0, 3);
             this.tableLayoutPanel2.Controls.Add(this.button2, 1, 3);
@@ -153,15 +151,6 @@ partial class Calculator
             this.tableLayoutPanel2.Size = new System.Drawing.Size(250, 275);
             this.tableLayoutPanel2.TabIndex = 1;
             // 
-            // signButton
-            // 
-            this.signButton.Location = new System.Drawing.Point(86, 3);
-            this.signButton.Name = "signButton";
-            this.signButton.Size = new System.Drawing.Size(77, 49);
-            this.signButton.TabIndex = 15;
-            this.signButton.Text = "+/-";
-            this.signButton.UseVisualStyleBackColor = true;
-            // 
             // eraseButton
             // 
             this.eraseButton.Location = new System.Drawing.Point(3, 3);
@@ -170,6 +159,7 @@ partial class Calculator
             this.eraseButton.TabIndex = 14;
             this.eraseButton.Text = "C";
             this.eraseButton.UseVisualStyleBackColor = true;
+            this.eraseButton.Click += new System.EventHandler(this.eraseButton_Click);
             // 
             // button1
             // 
@@ -279,6 +269,7 @@ partial class Calculator
             this.floatingPointButton.TabIndex = 13;
             this.floatingPointButton.Text = ",";
             this.floatingPointButton.UseVisualStyleBackColor = true;
+            this.floatingPointButton.Visible = false;
             // 
             // textBox
             // 
@@ -314,7 +305,6 @@ partial class Calculator
     private Button multiplyButton;
     private Button divideButton;
     private TableLayoutPanel tableLayoutPanel2;
-    private Button signButton;
     private Button eraseButton;
     private Button button1;
     private Button button2;
