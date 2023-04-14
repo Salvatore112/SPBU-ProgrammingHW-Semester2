@@ -1,4 +1,7 @@
 ﻿using StackCalculatorTask;
+using System.Runtime.CompilerServices;
+
+[assembly: InternalsVisibleTo("StackCalculatorTask.Tests")]
 
 string expression = "1 2 3 * +";
 var stack = new ListStack();
