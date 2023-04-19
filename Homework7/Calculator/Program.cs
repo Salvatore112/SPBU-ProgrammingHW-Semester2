@@ -1,4 +1,9 @@
-namespace CalculatorSpace;
+using CalculatorSpace;
+
+using System.Runtime.CompilerServices;
+
+[assembly: InternalsVisibleTo("Calculator.Tests")]
+
 
 internal static class Program
 {

@@ -65,6 +65,12 @@ internal class FiniteStateMachine
                         Output = "0";
                         break;
                     }
+                    if (Input == '=')
+                    {
+                        currentState = States.firstOperandStartState;
+                        Output = "Invalid input.";
+                        break;
+                    }
                     if (IsDigit(Input))
                     {
                         currentState = States.secondOperandState;
