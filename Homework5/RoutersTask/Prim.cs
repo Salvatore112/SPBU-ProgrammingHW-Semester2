@@ -17,7 +17,6 @@ public class Prim
     public List<Edge> OutputEdges { get; private set; } = new();
     private List<int> MarkedVertexes { get; set; } = new();  
     private int maxVertex = -1;
-    public bool Connected { get; set; }
 
     private void SortEdgeList(List<Edge> list)
     {
@@ -146,17 +145,17 @@ public class Prim
     /// <summary>
     /// A function that determines whether a graph is connect. 
     /// </summary>
-    public void IsConnected()
+    public bool IsConnected()
     {
         foreach (Edge edge in edge)
         {
             if (!MarkedVertexes.Contains(edge.Beginning) ||
                 !MarkedVertexes.Contains(edge.End))
             {
-                return;
+                return true;
             }
         }
-        Connected = true;
+        return false;
     }
 
     /// <summary>
@@ -169,7 +168,7 @@ public class Prim
     public void GetConfiguration(string inputPath, string outputPath)
     {
         BuildMaxSpanningTree(inputPath);
-        if (!Connected) 
+        if (!IsConnected()) 
         {
             Console.Error.Write("The network is not connected.");
             Environment.FailFast("The network is not connected.");
