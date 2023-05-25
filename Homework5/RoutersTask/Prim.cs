@@ -152,10 +152,10 @@ public class Prim
             if (!MarkedVertexes.Contains(edge.Beginning) ||
                 !MarkedVertexes.Contains(edge.End))
             {
-                return true;
+                return false;
             }
         }
-        return false;
+        return true;
     }
 
     /// <summary>
