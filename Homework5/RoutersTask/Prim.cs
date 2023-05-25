@@ -172,7 +172,7 @@ public class Prim
         if (!Connected) 
         {
             Console.Error.Write("The network is not connected.");
-            Environment.FailFast( String.Format("The network is not connected."));
+            Environment.FailFast("The network is not connected.");
         }
 
         using StreamWriter output = new StreamWriter(outputPath);
