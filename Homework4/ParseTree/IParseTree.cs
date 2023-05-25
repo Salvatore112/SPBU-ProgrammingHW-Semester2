@@ -1,7 +1,8 @@
 ﻿namespace ParseTreeSpace;
 
 /// <summary>
-/// Data structure that represents terminals or non-terminals.
+/// an ordered, rooted tree that represents the syntactic
+/// structure of a string according to some context-free grammar.
 /// </summary>
 public interface IParseTree
 {
