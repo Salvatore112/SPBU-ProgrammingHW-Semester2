@@ -1,4 +1,4 @@
-﻿using MapFilterFoldSpace;
+﻿using MapFilterFold;
 
 using System.Runtime.CompilerServices;
 
@@ -7,7 +7,7 @@ using System.Runtime.CompilerServices;
 var functions = new Functions();
 
 int pow2 (int a)
-    => a*a;
+    => a * a;
 
 var random = new Random();
 bool bigNumbers(int a)

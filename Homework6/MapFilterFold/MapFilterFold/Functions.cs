@@ -1,5 +1,8 @@
-﻿namespace MapFilterFoldSpace;
+﻿namespace MapFilterFold;
 
+/// <summary>
+/// Class that contains map, filter, fold functions.
+/// </summary>
 internal class Functions
 {
     /// <summary>
