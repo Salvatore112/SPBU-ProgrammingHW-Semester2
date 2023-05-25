@@ -16,7 +16,8 @@ public class GeneralListTests
     {
         list.AddValue(250, 0);
 
-        Assert.That(list.Size != 0 && list.GetValue(0) == 250);
+        Assert.That(list.Size, Is.Not.EqualTo(0));
+        Assert.That(list.GetValue(0), Is.EqualTo(250));
     }
 
     [TestCaseSource(nameof(Lists))]
@@ -29,7 +30,8 @@ public class GeneralListTests
         list.DeleteValue(2);
         list.DeleteValue(1);
 
-        Assert.That(list.Size == 1 && list.GetValue(0) == 700);
+        Assert.That(list.Size, Is.EqualTo(1));
+        Assert.That(list.GetValue(0), Is.EqualTo(700));
     }
 
     [TestCaseSource(nameof(Lists))]
@@ -41,7 +43,7 @@ public class GeneralListTests
 
         list.ChangeValue(600, 2);
 
-        Assert.That(list.GetValue(2) == 600);
+        Assert.That(list.GetValue(2), Is.EqualTo(600));
     }
 
     [TestCaseSource(nameof(Lists))]
