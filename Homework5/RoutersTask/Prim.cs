@@ -177,7 +177,7 @@ public class Prim
         using StreamWriter output = new StreamWriter(outputPath);
         SortEdgeList(OutputEdges);
         
-        for (int i = 1; i <= 7; i++)
+        for (int i = 1; i <= edge.Count; i++)
         {
             var outputString = new StringBuilder($"{i}: ");
             bool atLeastOne = false;
