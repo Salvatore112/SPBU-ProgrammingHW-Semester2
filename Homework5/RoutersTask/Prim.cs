@@ -38,7 +38,7 @@ public class Prim
 
     private void GetEdges(string FilePath)
     {
-        var inputFile = new StreamReader(FilePath);
+        using var inputFile = new StreamReader(FilePath);
 
         var newLine = String.Empty;
 
