@@ -8,7 +8,7 @@ internal class MyList : IMyList
     protected Node root = null;
 
     /// <inheritdoc cref="IMyList.Size"/>
-    public int Size { get; set; }
+    public int Size { get; private set; }
 
     protected class Node
     {
