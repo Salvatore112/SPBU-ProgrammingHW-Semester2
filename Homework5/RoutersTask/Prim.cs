@@ -165,7 +165,7 @@ public class Prim
     /// <param name="inputPath">Path to a file that contains a routers topology</param>
     /// <param name="outputPath">Path to a file where you want to store
     /// an optimal configuration.</param>
-    public void GetConfiguration(string inputPath, string outputPath)
+    public void BuildConfiguration(string inputPath, string outputPath)
     {
         BuildMaxSpanningTree(inputPath);
         if (!IsConnected()) 
