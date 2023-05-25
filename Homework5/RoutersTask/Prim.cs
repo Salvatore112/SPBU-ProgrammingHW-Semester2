@@ -43,11 +43,11 @@ public class Prim
 
         while ((newLine = inputFile.ReadLine()) != null)
         {
-            int beginning = Convert.ToInt32(newLine[0].ToString());
+            int beginning = Convert.ToInt32(newLine.Split(":")[0].ToString());
             
             maxVertex = Math.Max(maxVertex, beginning);
             
-            newLine = newLine.Remove(0, 3);
+            newLine = newLine.Remove(0, 2 + beginning.ToString().Length);
             string[] ends = newLine.Split(',');
             
             foreach (string end in ends)
