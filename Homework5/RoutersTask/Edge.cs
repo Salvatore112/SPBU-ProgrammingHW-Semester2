@@ -8,18 +8,18 @@ public class Edge
     /// <summary>
     /// Beginning vertex.
     /// </summary>
-    public int Beginning { get; set; }
+    public int Beginning { get; }
     
     /// <summary>
     /// End vertex.
     /// </summary>
-    public int End { get; set; }
+    public int End { get; }
 
     /// <summary>
     /// A label that carries certain information
     /// about an edge (lenght in this case).
     /// </summary>
-    public int Length { get; set; }
+    public int Length { get; }
 
     internal Edge(int beginning, int end, int length)
     {
