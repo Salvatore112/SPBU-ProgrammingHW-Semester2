@@ -144,7 +144,7 @@ public class Prim
     }
 
     /// <summary>
-    /// A function that determines wether a graph is connect.
+    /// A function that determines whether a graph is connect. 
     /// </summary>
     public void IsConnected()
     {
@@ -174,8 +174,7 @@ public class Prim
             Console.Error.Write("The network is not connected.");
             Environment.FailFast( String.Format("The network is not connected."));
         }
-        using FileStream newOuputFile = File.Create(outputPath);
-        newOuputFile.Close();
+
         using StreamWriter output = new StreamWriter(outputPath);
         SortEdgeList(OutputEdges);
         
