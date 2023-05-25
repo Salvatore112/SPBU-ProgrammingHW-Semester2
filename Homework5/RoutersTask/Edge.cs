@@ -33,7 +33,5 @@ public class Edge
     /// </summary>
     /// <returns></returns>
     public override string ToString()
-    {
-        return $"{this.End} ({this.Length})";
-    }
+        => $"{this.End} ({this.Length})";
 }
