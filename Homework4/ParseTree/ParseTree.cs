@@ -61,38 +61,42 @@ internal class ParseTree : IParseTree
 
         root = BuildParseTreeRecursion(simplifiedExpression, ref position);
     }
-    
+
     private INode BuildParseTreeRecursion(string[] expression, ref int position)
     {
-        INode tempNode;
-        
-        switch (expression[position]) 
+        INode tempNode = null;
+
+        switch (expression[position])
         {
             case "*":
-                var timesNode = new TimesOperator(BuildParseTreeRecursion(expression, ref position),
-                                                  BuildParseTreeRecursion(expression, ref position));
+                var timesNode = new TimesOperator();
                 position++;
+                timesNode.LeftChild = BuildParseTreeRecursion(expression, ref position);
+                timesNode.RightChild = BuildParseTreeRecursion(expression, ref position);
                 tempNode = timesNode;
                 break;
             case "+":
-                var plusNode = new PlusOperator(BuildParseTreeRecursion(expression, ref position),
-                                                BuildParseTreeRecursion(expression, ref position));
+                var plusNode = new PlusOperator();
                 position++;
+                plusNode.LeftChild = BuildParseTreeRecursion(expression, ref position);
+                plusNode.RightChild = BuildParseTreeRecursion(expression, ref position);
                 tempNode = plusNode;
                 break;
             case "-":
-                var minusNode = new PlusOperator(BuildParseTreeRecursion(expression, ref position),
-                                                 BuildParseTreeRecursion(expression, ref position));
+                var minusNode = new PlusOperator();
                 position++;
+                minusNode.LeftChild = BuildParseTreeRecursion(expression, ref position);
+                minusNode.RightChild = BuildParseTreeRecursion(expression, ref position);
                 tempNode = minusNode;
                 break;
             case "/":
-                var divideNode = new PlusOperator(BuildParseTreeRecursion(expression, ref position),
-                                                 BuildParseTreeRecursion(expression, ref position));
+                var divideNode = new DivideOperator();
                 position++;
+                divideNode.LeftChild = BuildParseTreeRecursion(expression, ref position);
+                divideNode.RightChild = BuildParseTreeRecursion(expression, ref position);
                 tempNode = divideNode;
                 break;
-            default:
+            default:    
                 try
                 {
                     double checkValue = Double.Parse(expression[position]);

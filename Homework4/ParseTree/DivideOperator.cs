@@ -1,7 +1,9 @@
-﻿namespace ParseTreeSpace;
+﻿using System.Text;
+
+namespace ParseTreeSpace;
 
 /// <inheritdoc cref="INode"/>
-internal class PlusOperator : Operator
+internal class DivideOperator : Operator
 {
     /// <inheritdoc cref="INode.LeftChild"/>
     public override INode LeftChild { get; set; }
@@ -11,9 +13,9 @@ internal class PlusOperator : Operator
 
     /// <inheritdoc cref="INode.Print"/>
     public override string Print()
-        => $"( + {LeftChild.Print()} {RightChild.Print()} )";
+        => $"( / {LeftChild.Print()} {RightChild.Print()} )";
 
     /// <inheritdoc cref="INode.Calculate"/>
     public override double Calculate()
-        => LeftChild.Calculate() + RightChild.Calculate();
+        => LeftChild.Calculate() / RightChild.Calculate();
 }
