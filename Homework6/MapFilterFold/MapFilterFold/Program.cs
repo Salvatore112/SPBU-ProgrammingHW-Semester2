@@ -6,12 +6,7 @@ using System.Runtime.CompilerServices;
 
 var functions = new Functions();
 
-int pow2 (int a)
-    => a * a;
-
 var random = new Random();
-bool bigNumbers(int a)
-    => a >= 100;
 
 List<double> neww = new List<double>() { 2.2, 3.14, 2.55 };
 
