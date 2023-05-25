@@ -3,7 +3,7 @@
 namespace UniqueListSpace;
 
 /// <summary>
-/// List data stracture, it has function of adding, 
+/// List data structure, it has function of adding, 
 /// deleting, changing, gettinh a value by a given
 /// position as well as a Size property that keeps 
 /// count of how many elements are in the list.
