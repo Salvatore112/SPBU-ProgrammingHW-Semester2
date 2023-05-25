@@ -5,41 +5,41 @@ namespace ParseTreeSpace;
 /// <inheritdoc cref="IParseTree"/>
 internal class ParseTree : IParseTree
 {
-    private INode? Root { get; set; }
-    private bool IsTreeBuilt { get; set; } = false;
+    private INode? root;
+    private bool isTreeBuilt = false;
 
     /// <inheritdoc cref="IParseTree.CalculateExpression"/>
     public double CalculateExpression(string expression)
     {
-        if (!IsTreeBuilt)
+        if (!isTreeBuilt)
         {
             BuildParseTree(expression);
-            IsTreeBuilt = true;
+            isTreeBuilt = true;
         }
         
-        if (Root == null)
+        if (root == null)
         {
             throw new InvalidExpressionException("Expression didn't contain operands or operators.");
         }
 
-        return Root.Calculate();
+        return root.Calculate();
     }
 
     /// <inheritdoc cref="IParseTree.PrintTree"/>
     public string PrintTree(string expression)
     {
-        if (!IsTreeBuilt)
+        if (!isTreeBuilt)
         {
             BuildParseTree(expression);
-            IsTreeBuilt = true;
+            isTreeBuilt = true;
         }
 
-        if (Root == null)
+        if (root == null)
         {
             throw new InvalidExpressionException("Expression didn't contain operands or operators.");
         }
 
-        return Root.Print();
+        return root.Print();
     }
 
     /// <inheritdoc cref="IParseTree.BuildParseTree"/>
@@ -58,7 +58,7 @@ internal class ParseTree : IParseTree
             throw new InvalidExpressionException("Expression shoud be at leas 3 characters long.");
         }
 
-        Root = BuildParseTreeRecursion(simplifiedExpression, ref position);
+        root = BuildParseTreeRecursion(simplifiedExpression, ref position);
     }
     
     private INode BuildParseTreeRecursion(string[] expression, ref int position)
