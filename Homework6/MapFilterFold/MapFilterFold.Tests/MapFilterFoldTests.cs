@@ -2,7 +2,7 @@ namespace MapFilterFoldSpace.Tests;
 
 public class Tests
 {
-    Functions functions = new Functions();
+    Functions functions = new();
 
     [Test]
     public void MapFunctionShouldWorkCorrectlyOnTheExampleInput()
@@ -13,8 +13,8 @@ public class Tests
         var expectedResult1 = new List<int>() { 2, 4, 6 };
         var expectedResult2 = new List<double>() { 2.2, 4.4, 6.6 };
 
-        Assert.That(functions.Map(exampleList1, x => x * 2).SequenceEqual(expectedResult1) &&
-                    functions.Map(exampleList2, x => x * 2).SequenceEqual(expectedResult2));
+        Assert.That(functions.Map(exampleList1, x => x * 2).SequenceEqual(expectedResult1));
+        Assert.That(functions.Map(exampleList2, x => x * 2).SequenceEqual(expectedResult2));
     }
 
     [Test]
@@ -26,8 +26,8 @@ public class Tests
         var expectedResult1 = new List<int>() { 10, 21 };
         var expectedResult2 = new List<double>() { 52.22, 10.3, 21.02 };
 
-        Assert.That(functions.Filter(testList1, x => x >= 10).SequenceEqual(expectedResult1) &&
-                    functions.Filter(testList2, x => x >= 10).SequenceEqual(expectedResult2));
+        Assert.That(functions.Filter(testList1, x => x >= 10).SequenceEqual(expectedResult1));
+        Assert.That(functions.Filter(testList2, x => x >= 10).SequenceEqual(expectedResult2));
     }
 
     [Test]
@@ -39,8 +39,7 @@ public class Tests
         var expectedResult1 = 6;
         var expectedResult2 = 6.0;
 
-        Assert.That(functions.Fold(exampleList1, 1, (int acc, int elem) => acc * elem)
-                    == expectedResult1 && functions.Fold(exampleList2, 1, (double acc,
-                    double elem) => acc * elem) - expectedResult2 < 0.0001);
+        Assert.That(functions.Fold(exampleList2, 1, (double acc, double elem) => acc * elem) - expectedResult2 < 0.0001);
+        Assert.That(functions.Fold(exampleList1, 1, (int acc, int elem) => acc * elem), Is.EqualTo(expectedResult1));
     }
 }
