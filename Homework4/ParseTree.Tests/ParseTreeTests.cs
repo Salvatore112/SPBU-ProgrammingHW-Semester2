@@ -23,8 +23,9 @@ public class Tests
     public void MultiplicationByZeroShouldProduceZero()
     {
         string expression = "* 9 0";
-        Assert.That(testTree.CalculateExpression(expression) < 0.00001 &&
-                    testTree.PrintTree(expression) == "( * 9 0 )");
+        
+        Assert.That(testTree.CalculateExpression(expression), Is.EqualTo(0));
+        Assert.That(testTree.PrintTree(expression), Is.EqualTo("( * 9 0 )"));
     }
 
     [Test]
