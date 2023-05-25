@@ -3,12 +3,6 @@
 /// <inheritdoc cref="INode"/>
 internal class Operand : INode
 {
-    /// <inheritdoc cref="INode.LeftChild"/>
-    public INode LeftChild { get; set; }
-
-    /// <inheritdoc cref="INode.RightChild"/>
-    public INode RightChild { get; set; }
-
     /// <summary>
     /// Value that an operand holds.
     /// </summary>

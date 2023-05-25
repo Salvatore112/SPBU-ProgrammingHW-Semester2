@@ -63,33 +63,33 @@ internal class ParseTree : IParseTree
     
     private INode BuildParseTreeRecursion(string[] expression, ref int position)
     {
-        INode tempNode = null;
+        INode tempNode;
         
         switch (expression[position]) 
         {
             case "*":
-                tempNode = new TimesOperator();
+                var timesNode = new TimesOperator(BuildParseTreeRecursion(expression, ref position),
+                                                  BuildParseTreeRecursion(expression, ref position));
                 position++;
-                tempNode.LeftChild = BuildParseTreeRecursion(expression, ref position);
-                tempNode.RightChild = BuildParseTreeRecursion(expression, ref position);
+                tempNode = timesNode;
                 break;
             case "+":
-                tempNode = new PlusOperator();
+                var plusNode = new PlusOperator(BuildParseTreeRecursion(expression, ref position),
+                                                BuildParseTreeRecursion(expression, ref position));
                 position++;
-                tempNode.LeftChild = BuildParseTreeRecursion(expression, ref position);
-                tempNode.RightChild = BuildParseTreeRecursion(expression, ref position);
+                tempNode = plusNode;
                 break;
             case "-":
-                tempNode = new MinusOperator();
+                var minusNode = new PlusOperator(BuildParseTreeRecursion(expression, ref position),
+                                                 BuildParseTreeRecursion(expression, ref position));
                 position++;
-                tempNode.LeftChild = BuildParseTreeRecursion(expression, ref position);
-                tempNode.RightChild = BuildParseTreeRecursion(expression, ref position);
+                tempNode = minusNode;
                 break;
             case "/":
-                tempNode = new DivideOperator();
+                var divideNode = new PlusOperator(BuildParseTreeRecursion(expression, ref position),
+                                                 BuildParseTreeRecursion(expression, ref position));
                 position++;
-                tempNode.LeftChild = BuildParseTreeRecursion(expression, ref position);
-                tempNode.RightChild = BuildParseTreeRecursion(expression, ref position);
+                tempNode = divideNode;
                 break;
             default:
                 try
