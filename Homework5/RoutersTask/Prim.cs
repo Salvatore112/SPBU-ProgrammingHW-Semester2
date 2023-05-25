@@ -14,7 +14,7 @@ public class Prim
     /// <summary>
     /// A list that contains edges of the found max spanning tree.
     /// </summary>
-    public List<Edge> OutputEdges { get; private set; } = new List<Edge>();
+    public List<Edge> OutputEdges { get; private set; } = new();
     private List<int> MarkedVertexes { get; set; } = new List<int>();  
     private int maxVertex = -1;
     public bool Connected { get; set; }
