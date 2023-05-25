@@ -9,7 +9,7 @@ using System.Text;
 /// </summary>
 public class Prim
 {
-    private List<Edge> Edges { get; set; } = new List<Edge>();
+    private List<Edge> edge = new();
     
     /// <summary>
     /// A list that contains edges of the found max spanning tree.
@@ -84,7 +84,7 @@ public class Prim
                 
                 maxVertex = Math.Max(maxVertex, endInt);
                 
-                Edges.Add(new Edge(beginning,
+                edge.Add(new Edge(beginning,
                                    endInt,
                                    Convert.ToInt32(stringLengthToAdd.ToString())));
             }
@@ -98,15 +98,15 @@ public class Prim
     public void BuildMaxSpanningTree(string FilePath)
     {
         GetEdges(FilePath);
-        SortEdgeList(Edges);
-        BuildMaxSpanningTreeRecursion(Edges[0]);
+        SortEdgeList(edge);
+        BuildMaxSpanningTreeRecursion(edge[0]);
     }
 
     private void BuildMaxSpanningTreeRecursion(Edge edge)
     {
         List<Edge> EdgesWithMarkedBeginnig = new List<Edge>();
         OutputEdges.Add(edge);
-        Edges.Remove(edge);
+        this.edge.Remove(edge);
         EdgesWithMarkedBeginnig.Remove(edge);
 
         int addedEdgeBeginning = edge.Beginning;
@@ -120,7 +120,7 @@ public class Prim
             MarkedVertexes.Add(addedEdgeEnd);
         }
 
-        foreach (Edge remainingEdge in Edges) 
+        foreach (Edge remainingEdge in this.edge) 
         {
             if  (MarkedVertexes.Contains(remainingEdge.End) ^ MarkedVertexes.Contains(remainingEdge.Beginning))
             {
@@ -148,7 +148,7 @@ public class Prim
     /// </summary>
     public void IsConnected()
     {
-        foreach (Edge edge in Edges)
+        foreach (Edge edge in edge)
         {
             if (!MarkedVertexes.Contains(edge.Beginning) ||
                 !MarkedVertexes.Contains(edge.End))
