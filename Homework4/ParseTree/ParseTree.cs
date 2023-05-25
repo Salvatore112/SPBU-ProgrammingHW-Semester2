@@ -7,9 +7,10 @@ internal class ParseTree : IParseTree
 {
     private INode? root;
     private bool isTreeBuilt = false;
+    private string expression;
 
     /// <inheritdoc cref="IParseTree.CalculateExpression"/>
-    public double CalculateExpression(string expression)
+    public double CalculateExpression()
     {
         if (!isTreeBuilt)
         {
@@ -26,7 +27,7 @@ internal class ParseTree : IParseTree
     }
 
     /// <inheritdoc cref="IParseTree.PrintTree"/>
-    public string PrintTree(string expression)
+    public string PrintTree()
     {
         if (!isTreeBuilt)
         {
@@ -124,5 +125,10 @@ internal class ParseTree : IParseTree
 
     private bool IsOperand(string character)
         => character == "+" || character == "-" || character == "/" || character == "*";
+
+    internal ParseTree(string expression)
+    {
+        this.expression = expression;
+    }
 }
 
