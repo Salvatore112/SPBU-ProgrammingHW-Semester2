@@ -86,7 +86,7 @@ internal class ParseTree : IParseTree
                 tempNode.RightChild = BuildParseTreeRecursion(expression, ref position);
                 break;
             case "/":
-                tempNode = new ObelusOperator();
+                tempNode = new DivideOperator();
                 position++;
                 tempNode.LeftChild = BuildParseTreeRecursion(expression, ref position);
                 tempNode.RightChild = BuildParseTreeRecursion(expression, ref position);
