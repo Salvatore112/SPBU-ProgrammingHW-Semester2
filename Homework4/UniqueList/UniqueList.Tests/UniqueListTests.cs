@@ -5,22 +5,25 @@ namespace UniqueListSpace.Tests;
 
 public class UniqueListTests
 {
-    private static IEnumerable<TestCaseData> Lists
-        => new TestCaseData[]
-        {
-            new TestCaseData(new UniqueList()),
-        };
+    UniqueList list;
 
-    [TestCaseSource(nameof(Lists))]
-    public void AddingAnExistentValueShouldThrowAnException(IMyList list)
+    [SetUp]
+    public void Init()
+    {
+        list = new UniqueList();
+    }
+
+
+    [Test]
+    public void AddingAnExistentValueShouldThrowAnException()
     {
         list.AddValue(250, 0);
         
         Assert.Throws<AddingExistingElementException>(() => list.AddValue(250, 1));
     }
 
-    [TestCaseSource(nameof(Lists))]
-    public void CausingTheListHaveTheSameValuesThroughChangeValueMethodShouldThrowAnException(IMyList list)
+    [Test]
+    public void CausingTheListHaveTheSameValuesThroughChangeValueMethodShouldThrowAnException()
     {
         list.AddValue(250, 0);
         list.AddValue(2520, 1);
