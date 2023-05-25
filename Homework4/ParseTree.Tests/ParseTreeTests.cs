@@ -14,8 +14,9 @@ public class Tests
     public void TreeShouldBeAbleToCalculateExampleExpression()
     {
         string expression = "(* (+ 1 1) 2)";
-        Assert.That(testTree.CalculateExpression(expression) == 4 &&
-                    testTree.PrintTree(expression) == "( * ( + 1 1 ) 2 )");
+
+        Assert.That(testTree.CalculateExpression(expression), Is.EqualTo(4));
+        Assert.That(testTree.PrintTree(expression), Is.EqualTo("( * ( + 1 1 ) 2 )"));
     }
 
     [Test]
