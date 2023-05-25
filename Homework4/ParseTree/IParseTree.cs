@@ -13,7 +13,6 @@ public interface IParseTree
     /// <param name="expression">Only contains integers, -, +, *, /. Must
     /// have the following form: operation operand1 operand2,
     /// where operands may be trees or integers.</param>
-    /// <returns></returns>
     public double CalculateExpression(string expression);
 
     /// <summary>
@@ -23,7 +22,6 @@ public interface IParseTree
     /// <param name="expression">Only contains integers, -, +, *, /. Must
     /// have the following form: operation operand1 operand2,
     /// where operands may be trees or integers.</param>
-    /// <returns></returns>
     public string PrintTree(string expression);
 
     /// <summary>
@@ -32,6 +30,5 @@ public interface IParseTree
     /// <param name="expression">Only contains integers, -, +, *, /. Must
     /// have the following form: operation operand1 operand2,
     /// where operands may be trees or integers.</param>
-    /// <returns></returns>
     public void BuildParseTree(string expression);
 }
