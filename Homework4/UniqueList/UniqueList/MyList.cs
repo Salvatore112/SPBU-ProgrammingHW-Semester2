@@ -31,7 +31,11 @@ internal class MyList : IMyList
     /// <inheritdoc cref="IMyList.AddValue"/>
     public virtual void AddValue(int value, int position)
     {
-        position = position > this.Size ? this.Size : position;
+        if (position > this.Size)
+        {
+            throw new OutOfBoundsException();
+        }
+
         var newNode = new Node(value);
         if (this.Size == 0)
         {

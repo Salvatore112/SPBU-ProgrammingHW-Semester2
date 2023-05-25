@@ -55,4 +55,10 @@ public class GeneralListTests
 
         Assert.Throws<DeletingNonExistentElementException>(() => list.DeleteValue(500));
     }
+
+    [TestCaseSource(nameof(Lists))]
+    public void AddingElementsAtTooHighIndeciesShouldThrowAnException(IMyList list)
+    {
+        Assert.Throws<OutOfBoundsException>(() => list.AddValue(700, 999));
+    }
 }
