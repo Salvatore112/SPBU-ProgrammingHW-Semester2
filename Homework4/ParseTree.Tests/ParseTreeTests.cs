@@ -42,23 +42,20 @@ public class Tests
     public void InvalidCharactersInTheExpressionShouldCauseAnException()
     {
         string expression = "+ a b";
-        testTree = new ParseTree(expression);
-        Assert.Throws<InvalidExpressionException>(() => testTree.CalculateExpression());
+        Assert.Throws<InvalidExpressionException>(() => new ParseTree(expression));
     }
 
     [Test]
     public void ExpressionStartingWithAnOperandShouldBeConsideredInvalid()
     {
         string expression = "5 + 5";
-        testTree = new ParseTree(expression);
-        Assert.Throws<InvalidExpressionException>(() => testTree.CalculateExpression());
+        Assert.Throws<InvalidExpressionException>(() => new ParseTree(expression));
     }
 
     [Test]
     public void ExpressionsWithMissingOperandsShouldCauseAnException()
     {
         string expression = "* 3";
-        testTree = new ParseTree(expression);
-        Assert.Throws<InvalidExpressionException>(() => testTree.CalculateExpression());
+        Assert.Throws<InvalidExpressionException>(() => new ParseTree(expression));
     }
 }
