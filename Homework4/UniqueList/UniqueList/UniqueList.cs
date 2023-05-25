@@ -6,27 +6,6 @@ using UniqueListSpace.UniqueListExceptions;
 /// <remarks>It may not contain the same elements.</remarks>
 internal class UniqueList : MyList
 {
-    private bool ThereIsSuchElement(int element)
-    {
-        if (Size == 0) 
-        { 
-            return false; 
-        }
-        
-        var tempNode = this.root;
-
-        while (tempNode != null)
-        {
-            if (tempNode.Value == element)
-            {
-                return true;
-            }
-            tempNode = tempNode.NextNode;
-        } 
-
-        return false;
-    }
-
     /// <inheritdoc cref="IMyList.AddValue"/>
     /// <exception cref="AddingExistingElementException">Throws an exception if 
     /// there was an attemp to 

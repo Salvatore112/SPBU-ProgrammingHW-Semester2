@@ -5,7 +5,7 @@ using UniqueListSpace.MyListExceptions;
 /// <inheritdoc cref="IMyList"/>
 internal class MyList : IMyList
 {
-    protected Node root = null;
+    private Node root = null;
 
     /// <inheritdoc cref="IMyList.Size"/>
     public int Size { get; private set; }
@@ -115,5 +115,26 @@ internal class MyList : IMyList
         }
 
         return tempNode.Value;
+    }
+
+    public bool ThereIsSuchElement(int element)
+    {
+        if (Size == 0)
+        {
+            return false;
+        }
+
+        var tempNode = this.root;
+
+        while (tempNode != null)
+        {
+            if (tempNode.Value == element)
+            {
+                return true;
+            }
+            tempNode = tempNode.NextNode;
+        }
+
+        return false;
     }
 }
