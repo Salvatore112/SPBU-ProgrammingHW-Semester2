@@ -1,7 +1,9 @@
-﻿namespace GameSpace;
+﻿using GameSpace;
+
+namespace GameSpace;
 
 /// <summary>
-/// Class that contains function of dealing with map loading and 
+/// Class that contains function of dealing with map uploading and 
 /// character movements.
 /// </summary>
 public class MapAndMovement
@@ -22,10 +24,11 @@ public class MapAndMovement
     /// <summary>
     /// Matrix that contains map.
     /// </summary>
-    public char[,]? Map { get; private set; }
+    public char[,] Map { get; private set; }
 
-    private int MapRows;
-    private int MapColumns;
+    private int mapRows;
+    private int mapColumns;
+    public bool withCharacter { get; private set; } = false;
 
     private void WriteAt(string s, int y, int x)
     {
@@ -45,22 +48,22 @@ public class MapAndMovement
     /// Function that uploads a map from the file.
     /// </summary>
     /// <param name="FilePath"></param>
-    public void UploadMap(string FilePath)
+    public void LoadMap(string FilePath)
     {
         string[] lines = File.ReadAllLines(FilePath);
 
-        MapRows = lines.Length;
+        mapRows = lines.Length;
 
         foreach (string line in lines)
         {
-            MapColumns = Math.Max(MapColumns, line.Length);
+            mapColumns = Math.Max(mapColumns, line.Length);
         }
 
-        Map = new char[MapRows, MapColumns];
+        Map = new char[mapRows, mapColumns];
 
-        for (int i = 0; i < MapRows; i++)
+        for (int i = 0; i < mapRows; i++)
         {
-            for (int j = 0; j < MapColumns; j++)
+            for (int j = 0; j < mapColumns; j++)
             {
                 if (j >= lines[i].Length)
                 {
@@ -71,11 +74,16 @@ public class MapAndMovement
                     Map[i, j] = lines[i][j];
                     if (Map[i, j] == '@')
                     {
+                        withCharacter = true;
                         characterX = j;
                         characterY = i;
                     }
                 }
             }
+        }
+        if (!withCharacter)
+        {
+            throw new InvalidMapException("The map doesn't have a character");
         }
     }
 
@@ -87,74 +95,14 @@ public class MapAndMovement
         originalRow = 0;
         originalCol = 0;
 
-        for (int i = 0; i < MapRows; i++)
+        for (int i = 0; i < mapRows; i++)
         {
-            for (int j = 0; j < MapColumns; j++)
+            for (int j = 0; j < mapColumns; j++)
             {
                 WriteAt(Map[i, j].ToString(), i, j);
             }
         }
     }
-
-    /*public void GoLeft()
-    {
-        if (Map[characterY, characterX - 1] == ' ')
-        {
-            WriteAt(" ", characterY, characterX);
-            WriteAt("@", characterY, characterX - 1);
-
-            Map[characterY, characterX] = ' ';
-            Map[characterY, characterX - 1] = '@';
-
-            characterX -= 1;
-        }
-        return;
-    }*/
-
-    /*public void GoRight()
-    {
-        if (Map[characterY, characterX + 1] == ' ')
-        {
-            WriteAt(" ", characterY, characterX);
-            WriteAt("@", characterY, characterX + 1);
-
-            Map[characterY, characterX] = ' ';
-            Map[characterY, characterX + 1] = '@';
-
-            characterX += 1;
-        }
-        return;
-    }*/
-
-    /*public void GoDown()
-    {
-        if (Map[characterY + 1, characterX] == ' ')
-        {
-            WriteAt(" ", characterY, characterX);
-            WriteAt("@", characterY + 1, characterX);
-
-            Map[characterY, characterX] = ' ';
-            Map[characterY + 1, characterX] = '@';
-
-            characterY += 1;
-        }
-        return;
-    }*/
-
-    /*public void GoUp()
-    {
-        if (Map[characterY - 1, characterX] == ' ')
-        {
-            WriteAt(" ", characterY, characterX);
-            WriteAt("@", characterY - 1, characterX);
-
-            Map[characterY, characterX] = ' ';
-            Map[characterY - 1, characterX] = '@';
-
-            characterY -= 1;
-        }
-        return;
-    }*/
 
     /// <summary>
     /// Function performs a move and stores the result in the matrix.
@@ -171,6 +119,7 @@ public class MapAndMovement
             characterX += x;
             characterY += y;
         }
+        return;
     }
 
     /// <summary>

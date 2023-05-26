@@ -39,7 +39,7 @@ internal class Game
     /// </summary>
     public void StartGame(string Map)
     {
-        mapAndMovement.UploadMap(Map);
+        mapAndMovement.LoadMap(Map);
         mapAndMovement.DrawMap();
         EventLoop(mapAndMovement.GoLeft, mapAndMovement.GoRight,
                   mapAndMovement.GoDown, mapAndMovement.GoUp);
