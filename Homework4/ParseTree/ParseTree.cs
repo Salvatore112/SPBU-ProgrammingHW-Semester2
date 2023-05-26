@@ -30,17 +30,15 @@ internal class ParseTree : IParseTree
         {
             if (expression[position] is "+" or "-" or "*" or "/")
             {
-                Operator operatorNode = expression[position] switch
+                position++;
+                Operator operatorNode = expression[position - 1] switch
                 {
-                    "*" => new TimesOperator(),
-                    "+" => new PlusOperator(),
-                    "-" => new MinusOperator(),
-                    "/" => new DivideOperator(),
+                    "*" => new TimesOperator(BuildParseTreeRecursion(expression, ref position), BuildParseTreeRecursion(expression, ref position)),
+                    "+" => new PlusOperator(BuildParseTreeRecursion(expression, ref position), BuildParseTreeRecursion(expression, ref position)),
+                    "-" => new MinusOperator(BuildParseTreeRecursion(expression, ref position), BuildParseTreeRecursion(expression, ref position)),
+                    "/" => new DivideOperator(BuildParseTreeRecursion(expression, ref position), BuildParseTreeRecursion(expression, ref position)),
                     _ => throw new InvalidExpressionException("")
                 };
-                position++;
-                operatorNode.LeftChild = BuildParseTreeRecursion(expression, ref position);
-                operatorNode.RightChild = BuildParseTreeRecursion(expression, ref position);
                 return operatorNode;
             }
             else 

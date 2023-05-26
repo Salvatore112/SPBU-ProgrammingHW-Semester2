@@ -4,10 +4,16 @@
 internal class TimesOperator : Operator
 {
     /// <inheritdoc cref="INode.LeftChild"/>
-    public override INode LeftChild { get; set; }
+    public INode LeftChild { get; }
 
     /// <inheritdoc cref="INode.RightChild"/>
-    public override INode RightChild { get; set; }
+    public INode RightChild { get; }
+
+    internal TimesOperator(INode leftChild, INode rightChild)
+    {
+        LeftChild = leftChild;
+        RightChild = rightChild;
+    }
 
     /// <inheritdoc cref="INode.Print"/>
     public override string Print()

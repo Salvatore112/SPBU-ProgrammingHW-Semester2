@@ -23,12 +23,4 @@ public interface IParseTree
     /// have the following form: operation operand1 operand2,
     /// where operands may be trees or integers.</param>
     public string PrintTree();
-
-    /*/// <summary>
-    /// Function that builds a parse tree based on a given expression
-    /// </summary>
-    /// <param name="expression">Only contains integers, -, +, *, /. Must
-    /// have the following form: operation operand1 operand2,
-    /// where operands may be trees or integers.</param>
-    public void BuildParseTree(string expression);*/
 }
