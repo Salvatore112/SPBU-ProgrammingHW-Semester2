@@ -5,11 +5,9 @@
 /// </summary>
 internal class Game
 {
-    private delegate void ArrowHandler();
+    private MapAndMovement mapAndMovement = new();
     
-    private MapAndMovement mapAndMovement = new MapAndMovement();
-    
-    private void EventLoop(ArrowHandler Left, ArrowHandler Right, ArrowHandler Down, ArrowHandler Up)
+    private void EventLoop(Action Left, Action Right, Action Down, Action Up)
     {
         bool needExit = false;
         while (!needExit)
@@ -30,7 +28,7 @@ internal class Game
                     Up();
                     break;
                 case ConsoleKey.F:
-                    needExit= true;
+                    needExit = true;
                     break;
             }
         }
@@ -39,7 +37,6 @@ internal class Game
     /// <summary>
     /// Function that starts the game.
     /// </summary>
-    /// <param name="Map"></param>
     public void StartGame(string Map)
     {
         mapAndMovement.UploadMap(Map);

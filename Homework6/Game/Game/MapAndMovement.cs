@@ -1,13 +1,13 @@
 ﻿namespace GameSpace;
 
 /// <summary>
-/// Class that contains function of dealing with map uploading and 
+/// Class that contains function of dealing with map loading and 
 /// character movements.
 /// </summary>
 public class MapAndMovement
 {
-    private int origRow = 0;
-    private int origCol = 0;
+    private int originalRow = 0;
+    private int originalCol = 0;
 
     /// <summary>
     /// Character's current X position.
@@ -22,7 +22,7 @@ public class MapAndMovement
     /// <summary>
     /// Matrix that contains map.
     /// </summary>
-    public char[,] Map { get; private set; }
+    public char[,]? Map { get; private set; }
 
     private int MapRows;
     private int MapColumns;
@@ -31,7 +31,7 @@ public class MapAndMovement
     {
         try
         {
-            Console.SetCursorPosition(origCol + x, origRow + y);
+            Console.SetCursorPosition(originalCol + x, originalRow + y);
             Console.Write(s);
         }
         catch (ArgumentOutOfRangeException e)
@@ -84,8 +84,8 @@ public class MapAndMovement
     /// </summary>
     public void DrawMap()
     {
-        origRow = 0;
-        origCol = 0;
+        originalRow = 0;
+        originalCol = 0;
 
         for (int i = 0; i < MapRows; i++)
         {
@@ -171,7 +171,6 @@ public class MapAndMovement
             characterX += x;
             characterY += y;
         }
-        return;
     }
 
     /// <summary>
