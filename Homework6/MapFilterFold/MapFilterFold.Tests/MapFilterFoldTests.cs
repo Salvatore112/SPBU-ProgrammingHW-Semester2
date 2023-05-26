@@ -1,4 +1,4 @@
-namespace MapFilterFoldSpace.Tests;
+namespace MapFilterFold.Tests;
 
 public class Tests
 {
@@ -39,7 +39,7 @@ public class Tests
         var expectedResult1 = 6;
         var expectedResult2 = 6.0;
 
-        Assert.That(functions.Fold(exampleList2, 1, (double acc, double elem) => acc * elem) - expectedResult2 < 0.0001);
-        Assert.That(functions.Fold(exampleList1, 1, (int acc, int elem) => acc * elem), Is.EqualTo(expectedResult1));
+        Assert.That(functions.Fold(new List<double> { 1.0, 2.0, 3.0 }, 1.0, (acc, elem) => acc * elem), Is.EqualTo(6.0));
+        Assert.That(functions.Fold(new List<int> { 1, 2, 3 }, 1, (acc, elem) => acc * elem), Is.EqualTo(6));
     }
 }

@@ -12,14 +12,16 @@ internal class Functions
     /// <param name="list">List to which the given function is applied.</param>
     /// <param name="transformFunction">Function that is aplied to the elements of the list.</param>
     /// <returns>List which elements were changed by the given function</returns>
-    public List<T> Map<T>(List<T> list, Func<T, T> transformFunction)
+    public List<U> Map<T, U>(List<T> list, Func<T, U> transformFunction)
     {
+        var outputList = new List<U>();
+        
         for (int i = 0; i < list.Count; i++)
         {
-            list[i] = transformFunction(list[i]);
+            outputList.Add(transformFunction(list[i]));
         }
 
-        return list;
+        return outputList;
     }
 
     /// <summary>
@@ -52,11 +54,11 @@ internal class Functions
     /// <param name="acc">The return value that the function accumulates.</param>
     /// <param name="foldFunction">The function that specifies how the Fold function should go through the given list</param>
     /// <returns></returns>
-    public T Fold<T>(List<T> list, T acc, Func<T, T, T> foldFunction) 
+    public U Fold<T, U>(List<T> list, U acc, Func<T, U, U> foldFunction) 
     {
         foreach (T element in list)
         {
-            acc = foldFunction(acc, element);
+            acc = foldFunction(element, acc);
         }
         
         return acc;
