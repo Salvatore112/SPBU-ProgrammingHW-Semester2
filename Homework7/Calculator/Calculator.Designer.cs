@@ -54,6 +54,9 @@ partial class Calculator
             // 
             // tableLayoutPanel1
             // 
+            this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.Controls.Add(this.equalsButton, 0, 4);
@@ -124,6 +127,9 @@ partial class Calculator
             // 
             // tableLayoutPanel2
             // 
+            this.tableLayoutPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanel2.ColumnCount = 3;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
@@ -148,14 +154,14 @@ partial class Calculator
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(250, 275);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(257, 272);
             this.tableLayoutPanel2.TabIndex = 1;
             // 
             // eraseButton
             // 
             this.eraseButton.Location = new System.Drawing.Point(3, 3);
             this.eraseButton.Name = "eraseButton";
-            this.eraseButton.Size = new System.Drawing.Size(77, 49);
+            this.eraseButton.Size = new System.Drawing.Size(77, 48);
             this.eraseButton.TabIndex = 14;
             this.eraseButton.Text = "C";
             this.eraseButton.UseVisualStyleBackColor = true;
@@ -163,9 +169,9 @@ partial class Calculator
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(3, 168);
+            this.button1.Location = new System.Drawing.Point(3, 165);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(77, 49);
+            this.button1.Size = new System.Drawing.Size(77, 48);
             this.button1.TabIndex = 3;
             this.button1.Text = "1";
             this.button1.UseVisualStyleBackColor = true;
@@ -173,9 +179,9 @@ partial class Calculator
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(86, 168);
+            this.button2.Location = new System.Drawing.Point(88, 165);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(77, 49);
+            this.button2.Size = new System.Drawing.Size(77, 48);
             this.button2.TabIndex = 4;
             this.button2.Text = "2";
             this.button2.UseVisualStyleBackColor = true;
@@ -183,9 +189,9 @@ partial class Calculator
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(169, 168);
+            this.button3.Location = new System.Drawing.Point(173, 165);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(77, 49);
+            this.button3.Size = new System.Drawing.Size(77, 48);
             this.button3.TabIndex = 5;
             this.button3.Text = "3";
             this.button3.UseVisualStyleBackColor = true;
@@ -193,9 +199,9 @@ partial class Calculator
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(3, 113);
+            this.button4.Location = new System.Drawing.Point(3, 111);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(77, 49);
+            this.button4.Size = new System.Drawing.Size(77, 48);
             this.button4.TabIndex = 6;
             this.button4.Text = "4";
             this.button4.UseVisualStyleBackColor = true;
@@ -203,9 +209,9 @@ partial class Calculator
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(86, 113);
+            this.button5.Location = new System.Drawing.Point(88, 111);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(77, 49);
+            this.button5.Size = new System.Drawing.Size(77, 48);
             this.button5.TabIndex = 7;
             this.button5.Text = "5";
             this.button5.UseVisualStyleBackColor = true;
@@ -213,9 +219,9 @@ partial class Calculator
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(169, 113);
+            this.button6.Location = new System.Drawing.Point(173, 111);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(77, 49);
+            this.button6.Size = new System.Drawing.Size(77, 48);
             this.button6.TabIndex = 8;
             this.button6.Text = "6";
             this.button6.UseVisualStyleBackColor = true;
@@ -223,9 +229,9 @@ partial class Calculator
             // 
             // button7
             // 
-            this.button7.Location = new System.Drawing.Point(3, 58);
+            this.button7.Location = new System.Drawing.Point(3, 57);
             this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(77, 49);
+            this.button7.Size = new System.Drawing.Size(77, 48);
             this.button7.TabIndex = 9;
             this.button7.Text = "7";
             this.button7.UseVisualStyleBackColor = true;
@@ -233,9 +239,9 @@ partial class Calculator
             // 
             // button8
             // 
-            this.button8.Location = new System.Drawing.Point(86, 58);
+            this.button8.Location = new System.Drawing.Point(88, 57);
             this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(77, 49);
+            this.button8.Size = new System.Drawing.Size(77, 48);
             this.button8.TabIndex = 10;
             this.button8.Text = "8";
             this.button8.UseVisualStyleBackColor = true;
@@ -243,9 +249,9 @@ partial class Calculator
             // 
             // button9
             // 
-            this.button9.Location = new System.Drawing.Point(169, 58);
+            this.button9.Location = new System.Drawing.Point(173, 57);
             this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(77, 49);
+            this.button9.Size = new System.Drawing.Size(77, 48);
             this.button9.TabIndex = 11;
             this.button9.Text = "9";
             this.button9.UseVisualStyleBackColor = true;
@@ -253,7 +259,7 @@ partial class Calculator
             // 
             // button0
             // 
-            this.button0.Location = new System.Drawing.Point(3, 223);
+            this.button0.Location = new System.Drawing.Point(3, 219);
             this.button0.Name = "button0";
             this.button0.Size = new System.Drawing.Size(77, 49);
             this.button0.TabIndex = 12;
@@ -263,7 +269,7 @@ partial class Calculator
             // 
             // floatingPointButton
             // 
-            this.floatingPointButton.Location = new System.Drawing.Point(169, 223);
+            this.floatingPointButton.Location = new System.Drawing.Point(173, 219);
             this.floatingPointButton.Name = "floatingPointButton";
             this.floatingPointButton.Size = new System.Drawing.Size(78, 49);
             this.floatingPointButton.TabIndex = 13;
@@ -273,6 +279,9 @@ partial class Calculator
             // 
             // textBox
             // 
+            this.textBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.textBox.Location = new System.Drawing.Point(24, 21);
             this.textBox.Name = "textBox";
             this.textBox.Size = new System.Drawing.Size(361, 27);
@@ -282,7 +291,7 @@ partial class Calculator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(627, 593);
+            this.ClientSize = new System.Drawing.Size(408, 364);
             this.Controls.Add(this.textBox);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.tableLayoutPanel2);
