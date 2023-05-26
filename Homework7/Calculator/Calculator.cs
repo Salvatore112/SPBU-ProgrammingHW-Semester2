@@ -8,7 +8,7 @@ public partial class Calculator : Form
         textBox.Text = "0";
     }
 
-    FiniteStateMachine finiteStateMachine = new FiniteStateMachine();
+    FiniteStateMachine finiteStateMachine = new();
 
     private void button1_Click(object sender, EventArgs e)
     {

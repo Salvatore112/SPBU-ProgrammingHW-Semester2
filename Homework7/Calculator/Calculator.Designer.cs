@@ -282,7 +282,7 @@ partial class Calculator
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(401, 364);
+            this.ClientSize = new System.Drawing.Size(627, 593);
             this.Controls.Add(this.textBox);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.tableLayoutPanel2);

@@ -2,11 +2,17 @@ using CalculatorSpace;
 
 public class Tests
 {
+    FiniteStateMachine calculator;
+
+    [SetUp]
+    public void Init()
+    {
+        calculator = new FiniteStateMachine();
+    }
 
     [Test]
     public void AdditionShouldWork()
     {
-        var calculator = new FiniteStateMachine();
         calculator.Input = '2';
         calculator.IterateFSM();
         calculator.Input = '+';
@@ -15,13 +21,12 @@ public class Tests
         calculator.IterateFSM();
         calculator.Input = '=';
         calculator.IterateFSM();
-        Assert.That(calculator.Output == "4");
+        Assert.That(calculator.Output, Is.EqualTo("4"));
     }
     
     [Test]
     public void SubtractionShouldWork()
     {
-        var calculator = new FiniteStateMachine();
         calculator.Input = '7';
         calculator.IterateFSM();
         calculator.Input = '-';
@@ -30,13 +35,12 @@ public class Tests
         calculator.IterateFSM();
         calculator.Input = '=';
         calculator.IterateFSM();
-        Assert.That(calculator.Output == "5");
+        Assert.That(calculator.Output, Is.EqualTo("5"));
     }
 
     [Test]
     public void MultiplicationShouldWork()
     {
-        var calculator = new FiniteStateMachine();
         calculator.Input = '5';
         calculator.IterateFSM();
         calculator.Input = '*';
@@ -45,7 +49,7 @@ public class Tests
         calculator.IterateFSM();
         calculator.Input = '=';
         calculator.IterateFSM();
-        Assert.That(calculator.Output == "25");
+        Assert.That(calculator.Output, Is.EqualTo("25"));
     }
 
     [Test]
@@ -60,13 +64,12 @@ public class Tests
         calculator.IterateFSM();
         calculator.Input = '=';
         calculator.IterateFSM();
-        Assert.That(calculator.Output == "3");
+        Assert.That(calculator.Output, Is.EqualTo("3"));
     }
 
     [Test]
     public void DivisionByZeroShouldThrowAnError()
     {
-        var calculator = new FiniteStateMachine();
         calculator.Input = '1';
         calculator.IterateFSM();
         calculator.Input = '/';
@@ -75,6 +78,6 @@ public class Tests
         calculator.IterateFSM();
         calculator.Input = '=';
         calculator.IterateFSM();
-        Assert.That(calculator.Output == "Invalid input.");
+        Assert.That(calculator.Output, Is.EqualTo("Invalid input."));
     }
 }

@@ -1,21 +1,24 @@
 ﻿namespace CalculatorSpace;
 
+/// <summary>
+/// Calculator functionality based off of finite state machine.
+/// </summary>
 internal class FiniteStateMachine
 {
-    enum States : int
+    enum States 
     {
-        firstOperandStartState = 0,
-        firstOperandState = 1,
-        signState = 2,
-        plusOperatorState = 3,
-        secondOperandStartState = 4,
-        secondOperandState = 5,
+        FirstOperandStartState = 0,
+        FirstOperandState = 1,
+        SignState = 2,
+        PlusOperatorState = 3,
+        SecondOperandStartState = 4,
+        SecondOperandState = 5,
     }
 
-    private States currentState = States.firstOperandStartState;
+    private States currentState = States.FirstOperandStartState;
     private string firstOperand = string.Empty;
     private string secondOperand = string.Empty;
-    static char Operator;
+    public static char Operator { get; set; }
 
     public char Input { get; set; } = '0';
     public string Output { get; private set; }
@@ -24,32 +27,33 @@ internal class FiniteStateMachine
     {
         if (Input == 'C')
         {
-            currentState = States.firstOperandStartState;
+            currentState = States.FirstOperandStartState;
             Output = "0";
         }
         else 
         {
             switch (currentState)
             {
-                case (States.firstOperandStartState):
+                case (States.FirstOperandStartState):
                     if (Input == '0' || IsOperator(Input))
                     {
-                        currentState = States.firstOperandStartState;
+                        currentState = States.FirstOperandStartState;
                         Output = "0";
                         break;
                     }
                     if (IsDigit(Input))
                     {
-                        currentState = States.firstOperandState;
+                        currentState = States.FirstOperandState;
                         Output = Input.ToString();
                         firstOperand = Input.ToString();
                     }
                     break;
-                case (States.firstOperandState):
+                case (States.FirstOperandState):
+                    
                     if (IsOperator(Input))
                     {
                         Operator = Input;
-                        currentState = States.secondOperandStartState;
+                        currentState = States.SecondOperandStartState;
                         break;
                     }
                     if (IsDigit(Input))
@@ -58,27 +62,27 @@ internal class FiniteStateMachine
                         firstOperand += Input.ToString();
                     }
                     break;
-                case (States.secondOperandStartState):
+                case (States.SecondOperandStartState):
                     if (Input == '0' || IsOperator(Input))
                     {
-                        currentState = States.secondOperandStartState;
+                        currentState = States.SecondOperandStartState;
                         Output = "0";
                         break;
                     }
                     if (Input == '=')
                     {
-                        currentState = States.firstOperandStartState;
+                        currentState = States.FirstOperandStartState;
                         Output = "Invalid input.";
                         break;
                     }
                     if (IsDigit(Input))
                     {
-                        currentState = States.secondOperandState;
+                        currentState = States.SecondOperandState;
                         Output = Input.ToString();
                         secondOperand = Input.ToString();
                     }
                     break;
-                case (States.secondOperandState):
+                case (States.SecondOperandState):
                     if (IsOperator(Input) || Input == '=')
                     {
                         switch (Operator)
@@ -96,7 +100,8 @@ internal class FiniteStateMachine
                                 Output = (Convert.ToInt32(firstOperand) * Convert.ToInt32(secondOperand)).ToString();
                                 break;
                         }
-                        currentState = States.firstOperandStartState;
+                        currentState = States.SecondOperandStartState;
+                        firstOperand = Output;
                         break;
                     }
                     if (IsDigit(Input))
@@ -109,13 +114,13 @@ internal class FiniteStateMachine
         }
     }
 
-    bool IsDigit(char character)
+    private bool IsDigit(char character)
         => Convert.ToInt32(character.ToString()) >= 0 && Convert.ToInt32(character.ToString()) <= 9;
 
-    bool IsSign(char character)
+    private bool IsSign(char character)
         => character == '+' || character == '-';
 
-    bool IsOperator(char character)
+    private bool IsOperator(char character)
         => character == '+' || character == '-' || character == '*' ||
            character == '/';
 
