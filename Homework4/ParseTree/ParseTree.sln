@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ParseTree", "ParseTree\ParseTree.csproj", "{3EF8A46C-E65A-44CE-878C-8236A2E3B11C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ParseTree", "ParseTree.csproj", "{A17FD1E5-1B9C-47CE-A085-E73F29D67C67}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ParseTree.Tests", "..\ParseTree.Tests\ParseTree.Tests.csproj", "{D8158093-C708-4218-8BAF-F7FE5F2FB403}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +13,19 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{3EF8A46C-E65A-44CE-878C-8236A2E3B11C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3EF8A46C-E65A-44CE-878C-8236A2E3B11C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3EF8A46C-E65A-44CE-878C-8236A2E3B11C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3EF8A46C-E65A-44CE-878C-8236A2E3B11C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A17FD1E5-1B9C-47CE-A085-E73F29D67C67}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A17FD1E5-1B9C-47CE-A085-E73F29D67C67}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A17FD1E5-1B9C-47CE-A085-E73F29D67C67}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A17FD1E5-1B9C-47CE-A085-E73F29D67C67}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D8158093-C708-4218-8BAF-F7FE5F2FB403}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D8158093-C708-4218-8BAF-F7FE5F2FB403}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D8158093-C708-4218-8BAF-F7FE5F2FB403}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D8158093-C708-4218-8BAF-F7FE5F2FB403}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {EE31BB4C-0E2F-453A-9E97-15F10F4D7485}
+		SolutionGuid = {AE7B7D78-B882-4B5B-BD33-1392B59B9CA4}
 	EndGlobalSection
 EndGlobal
