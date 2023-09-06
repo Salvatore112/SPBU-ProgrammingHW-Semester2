@@ -1,7 +1,7 @@
 
 # Домашние задания и контрольные по программированию. 2-ой семестр.
 
-![example workflow](https://github.com/Salvatore112/SPBU-ProgrammingHW-Semester2/actions)
+[![.github/workflows/CI.yml](https://github.com/Salvatore112/SPBU-ProgrammingHW-Semester2/actions/workflows/ci.yml/badge.svg)]
 
 # Барроуз-Уилер
 
