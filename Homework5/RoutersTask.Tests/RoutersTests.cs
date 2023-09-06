@@ -13,7 +13,7 @@ public class Tests
     {
         prim.BuildMaxSpanningTree("notConnected.txt");
         prim.IsConnected();
-        Assert.That(!prim.Connected);
+        Assert.That(!prim.IsConnected());
     }
 
     [TestCaseSource(nameof(Prim))]
