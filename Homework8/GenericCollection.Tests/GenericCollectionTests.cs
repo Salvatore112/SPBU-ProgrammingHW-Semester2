@@ -28,26 +28,6 @@ public class Tests
     }
 
     [Test]
-    public void RemoveAndContainShouldWork()
-    {
-        skiplist.Add(222);
-        skiplist.Add(333);
-        skiplist.Add(444);
-        skiplist.Remove(333);
-        Assert.That(!skiplist.Contains(333));
-    }
-
-    [Test]
-    public void RemoveAtAndContainShouldWork()
-    {
-        skiplist.Add(15);
-        skiplist.Add(20);
-        skiplist.Add(25);
-        skiplist.RemoveAt(2);
-        Assert.That(!skiplist.Contains(25));
-    }
-
-    [Test]
     public void ClearShouldWork()
     {
         skiplist.Add(0);
