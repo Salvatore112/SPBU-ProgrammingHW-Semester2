@@ -34,6 +34,7 @@ int HowManyStartsWithPrefix(String prefix) (работает за O(|prefix|))
 И свойство
 
 int Size (работает за O(1))
+
 [Решение](https://github.com/Salvatore112/SPBU-ProgrammingHW-Semester2/tree/main/Homework2/Trie)
 
 # Тесты для стекового калькулятора
